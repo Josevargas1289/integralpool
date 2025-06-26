@@ -20,7 +20,9 @@ function MobileMenu(props) {
   const curLang = '/' + i18n.language;
 
   const SideList = () => (
+    
     <div
+    
       className={classes.mobileNav}
       role="presentation"
       onClick={toggleDrawer}
@@ -65,8 +67,8 @@ function MobileMenu(props) {
             </div>
 
           </Grid>
-          <Divider className={classes.dividerSidebar} />
-          <p style={{ textAlign: 'center', fontSize: '14px', color: '#888', marginTop: '6rem' }}>
+        
+          <p style={{ textAlign: 'center', fontSize: '14px', color: '#888', marginTop: '1rem' }}>
             &copy; {new Date().getFullYear()} Todos los derechos reservados.
           </p>
         </List>

@@ -225,7 +225,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     [`& .${classes.menu}`]: {
       padding: theme.spacing(0, 2),
       overflow: 'auto',
-      top: 80,
+      top: 130,
       width: '100%',
       position: 'absolute',
       height: 'calc(100% - 80px)',
@@ -244,7 +244,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
   socialWrapper: {
   display: 'flex',
   justifyContent: 'center',
-  padding: '3rem 0',
+  padding: '1rem 0',
   
 },
 brandText: {
