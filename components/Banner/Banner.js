@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { useTranslation } from 'next-i18next';
-import NET from 'vanta/dist/vanta.net.min';
+import WAVES from 'vanta/dist/vanta.waves.min';
 import { useText } from 'theme/common';
 import useStyles from './banner-style';
 
@@ -58,20 +58,25 @@ function Banner() {
     window.addEventListener('scroll', handleScroll);
     if (!vantaEffect) {
       setTimeout(() => {
-        setVantaEffect(NET({
-          el: myRef.current,
-          color: theme.palette.primary.main,
-          backgroundColor: theme.palette.primary.light,
-          backgroundAlpha: 0,
-          points: 4.00,
-          maxDistance: 18.00,
-          spacing: 12.00
-        }))
-      }, 2000)
+        setVantaEffect(
+          WAVES({
+            el: myRef.current,
+            color: theme.palette.primary.main, // Color principal igual al de NET
+            backgroundColor: theme.palette.primary.light, // Fondo igual que en NET
+            waveHeight: 2, // Sutil, pero visible
+            waveSpeed: 0.5, // Movimiento muy suave
+            zoom: 1.0, // Escala normal
+            shininess: 20, // Leve brillo (opcional)
+            mouseControls: true,
+            touchControls: false,
+            gyroControls: false,
+          })
+        );
+      }, 2000);
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
+      if (vantaEffect) vantaEffect.destroy();
+    };
   }, [vantaEffect]);
 
   const handleChange = (event, type) => {
@@ -108,45 +113,6 @@ function Banner() {
             <Typography component="p" className={text.subtitle2}>
               {t('hosting-landing.banner_subtitle')}
             </Typography>
-            <Paper className={classes.searchDomain}>
-              <TextField
-                variant="standard"
-                className={classes.search}
-                label={t('hosting-landing.banner_label')}
-                onChange={(e) => handleChange(e, 'name')}
-              />
-              <div className={classes.action}>
-                {!isTablet && (
-                  <FormControl variant="standard" className={classes.formControl}>
-                    <Select
-                      variant="standard"
-                      value={values.domain}
-                      onChange={(e) => handleChange(e, 'domain')}
-                      displayEmpty
-                      name="domain"
-                      className={classes.selectDomain}
-                    >
-                      <MenuItem value="com">.com</MenuItem>
-                      <MenuItem value="net">.net</MenuItem>
-                      <MenuItem value="org">.org</MenuItem>
-                      <MenuItem value="co">.co</MenuItem>
-                      <MenuItem value="biz">.biz</MenuItem>
-                      <MenuItem value="gov">.gov</MenuItem>
-                      <MenuItem value="id">.id</MenuItem>
-                      <MenuItem value="abc">.abc</MenuItem>
-                      <MenuItem value="xyz">.xyz</MenuItem>
-                      <MenuItem value="news">.news</MenuItem>
-                      <MenuItem value="cc">.cc</MenuItem>
-                      <MenuItem value="me">.me</MenuItem>
-                    </Select>
-                  </FormControl>
-                )}
-                <Button className={classes.button} variant="contained" color="primary">
-                  <SearchIcon className={classes.icon} />
-                  {isDesktop && t('hosting-landing.banner_button')}
-                </Button>
-              </div>
-            </Paper>
           </div>
         </div>
       </Container>

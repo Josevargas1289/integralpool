@@ -70,7 +70,7 @@ function Header(props) {
     createData(navMenu[2], '#' + navMenu[2]),
     createData(navMenu[3], '#' + navMenu[3], 80),
     createData(navMenu[4], '#' + navMenu[4], 40),
-   
+
   ]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
@@ -104,7 +104,7 @@ function Header(props) {
                 </IconButton>
               )}
               {invert ? (
-                <Link href={ routeLink.hosting.home}>
+                <Link href={routeLink.hosting.home}>
                   <img src={brand.hosting.img} alt="logo" />
                   {brand.hosting.name}
                 </Link>
@@ -121,10 +121,8 @@ function Header(props) {
                   <PhoneIcon />
                   +12 345 678 9
                   <Divider className={classes.divider} />
-                  
                 </Fragment>
               )}
-            
               <Settings toggleDark={onToggleDark} toggleDir={onToggleDir} invert={invert} />
             </nav>
           </Container>

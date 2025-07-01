@@ -74,7 +74,7 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     position: 'relative',
     padding: theme.spacing(25, 0, 20),
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(32, 0, 20),
+      padding: theme.spacing(30, 0, 35),
     }
   },
   text: {

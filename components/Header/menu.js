@@ -4,9 +4,6 @@ const menu = [
   'benefit',
   'pricing',
   'testimonials',
- 
-  
-  
 ];
 
 export default menu;
