@@ -1,7 +1,5 @@
 import { makeStyles } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
-import cloudBottomLight from 'public/images/hosting/cloud_bottom_light.svg';
-import cloudBottomDark from 'public/images/hosting/cloud_bottom_dark.svg';
 
 const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
   root: {
