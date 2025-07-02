@@ -88,16 +88,32 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     }
   },
   text: {
-    textAlign: 'center',
-    '& h4': {
-      fontWeight: theme.typography.fontWeightBold,
-      color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.dark,
-      marginBottom: theme.spacing(3),
-    },
-    '& p': {
-      fontWeight: theme.typography.fontWeightMedium
-    }
+  textAlign: 'center',
+  opacity: 0,
+  animation: 'slideDownSlow 3.8s ease-out 0.3s forwards', // duración: 1.8s, delay: 0.3s
+  '& h4': {
+    fontWeight: theme.typography.fontWeightBold,
+    color: theme.palette.mode === 'dark'
+      ? theme.palette.primary.light
+      : theme.palette.primary.dark,
+    marginBottom: theme.spacing(3),
+    fontSize: '2rem',
   },
+  '& p': {
+    fontWeight: theme.typography.fontWeightMedium,
+    fontSize: '1.2rem',
+  },
+  '@keyframes slideDownSlow': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateY(-40px)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+  }
+},
   searchDomain: {
     position: 'relative',
     marginTop: theme.spacing(3),

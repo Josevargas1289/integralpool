@@ -19,6 +19,7 @@ import Testimonials from 'components/Testimonials';
 import PageNav from 'components/PageNav';
 import Notification from 'components/Notification';
 import MoreFeature from 'components/Feature/MoreFeature';
+import WhatsaapButton from '../../components/WhatsaapButton/whatsappButton';
 
 const sectionMargin = margin => (margin * 20);
 const useStyles = makeStyles({ uniqId: 'home' })(theme => ({
@@ -59,16 +60,11 @@ function Landing(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>
-          { brand.hosting.name + ' - Home Page' }
-        </title>
+        <title>{brand.hosting.name + " - Home Page"}</title>
       </Head>
       <CssBaseline />
       <section id="home" />
-      <MainContainer
-        onToggleDark={onToggleDark}
-        onToggleDir={onToggleDir}
-      >
+      <MainContainer onToggleDark={onToggleDark} onToggleDir={onToggleDir}>
         <Fragment>
           <main className={classes.containerWrap}>
             <section id="search">
@@ -90,14 +86,11 @@ function Landing(props) {
             <section id="testimonials" className={classes.spaceTopShort}>
               <Testimonials />
             </section>
-            {!isTablet && (
-              <Notification />
-            )}
+            {!isTablet && <Notification />}
           </main>
-          {!isTablet && (
-            <PageNav />
-          )}
+          {!isTablet && <PageNav />}
         </Fragment>
+        <WhatsaapButton />
       </MainContainer>
     </React.Fragment>
   );

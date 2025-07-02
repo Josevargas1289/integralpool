@@ -21,6 +21,7 @@ import '../vendors/animate-extends.css';
 import '../vendors/top-loading-bar.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
+import WhatsaapButton from '../components/WhatsaapButton/whatsappButton';
 
 let themeType = '';
 if (typeof Storage !== 'undefined') { // eslint-disable-line
@@ -120,7 +121,7 @@ function MyApp(props) {
 
   const muiTheme = createTheme(theme);
   return (
-    <CacheProvider value={theme.direction === 'rtl' ? cacheRTL : cacheLTR}>
+    <CacheProvider value={theme.direction === "rtl" ? cacheRTL : cacheLTR}>
       <Head>
         <meta
           name="viewport"
@@ -142,6 +143,7 @@ function MyApp(props) {
             onToggleDir={toggleDirection}
             key={router.route}
           />
+          <WhatsaapButton />
         </div>
       </ThemeProvider>
     </CacheProvider>

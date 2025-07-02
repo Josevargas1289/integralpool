@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next';
 
 import { useText } from 'theme/common';
 import useStyles from './banner-style';
-import fondoBanner from '../../public/images/fondoBanner.png'
+import fondoBanner from '../../public/images/fondoBanner.svg';
 
 function Banner() {
   const { classes, cx } = useStyles();
