@@ -15,6 +15,28 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     overflow: 'hidden',
     background: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
   },
+  imageResponsive: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: 0.3, // ⭐️ para que el texto se vea mejor
+    transition: 'transform 0.5s ease, filter 0.5s ease',
+    filter: 'brightness(0.9)',
+    animationName: '$fadeIn',
+    animationDuration: '1.2s',
+    animationTimingFunction: 'ease-in-out',
+    animationFillMode: 'forwards',
+    '&:hover': {
+      transform: 'scale(1.03)',
+      filter: 'brightness(1.05)'
+    }
+  },
+  '@global': {
+    '@keyframes fadeIn': {
+      from: { opacity: 0 },
+      to: { opacity: 0.4 } // Coincide con el valor final de opacity
+    }
+  },
 
   parallaxWrap: {
     position: 'absolute',
@@ -159,5 +181,4 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
   }
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default bannerStyles;
