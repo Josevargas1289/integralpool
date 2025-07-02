@@ -20,9 +20,7 @@ function MobileMenu(props) {
   const curLang = '/' + i18n.language;
 
   const SideList = () => (
-    
     <div
-    
       className={classes.mobileNav}
       role="presentation"
       onClick={toggleDrawer}

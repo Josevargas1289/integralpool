@@ -6,17 +6,24 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
   last: {},
   mainFeature: {
     textAlign: 'center',
+    marginTop: theme.spacing(10),
     marginBottom: theme.spacing(10),
     [theme.breakpoints.down('md')]: {
-      marginBottom: theme.spacing(5),
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
     },
     '& figure': {
       background: alpha(theme.palette.secondary.light, 0.5),
-      width: 120,
-      height: 120,
+      width: 100,
+      height: 100,
       margin: '0 auto',
       borderRadius: '50%',
-      marginBottom: theme.spacing(6),
+      marginBottom: theme.spacing(3), // ← MENOR separación en móvil
+      [theme.breakpoints.down('sm')]: {
+        width: 80,
+        height: 80,
+        marginBottom: theme.spacing(2),
+      }
     },
     '& img': {
       position: 'relative',
@@ -24,6 +31,9 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       left: '-50%',
       top: '-50%',
       transform: 'translate(25%, 25%)',
+      [theme.breakpoints.down('sm')]: {
+        height: 120
+      }
     },
     '& h6': {
       marginBottom: theme.spacing(2),
@@ -40,7 +50,11 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
   moreFeature: {
     position: 'relative',
     '& figure': {
-      margin: 0
+      margin: 0,
+      marginTop: theme.spacing(18),
+      [theme.breakpoints.down('sm')]: {
+        marginTop: theme.spacing(10)
+      }
     },
     [`& .${classes.divider}`]: {
       border: 'none',
@@ -48,7 +62,7 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       background: 'none',
       margin: theme.spacing(5, 0),
       [theme.breakpoints.down('md')]: {
-        margin: theme.spacing(10, 0),
+        margin: theme.spacing(6, 0),
       },
       '&:before': {
         content: '""',
@@ -99,10 +113,16 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
     }
   },
   text: {
-    margin: theme.spacing(8, 0),
+    margin: theme.spacing(18, 0),
     [theme.breakpoints.down('md')]: {
-      margin: theme.spacing(0)
-    }
+      margin: theme.spacing(4, 0),
+    },
+    [theme.breakpoints.only('sm')]: {
+       marginTop: theme.spacing(12),
+      },
+      [theme.breakpoints.only('xs')]: {
+         marginTop: theme.spacing(12)
+      },
   },
   illustration: {
     '& img': {
@@ -114,11 +134,11 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       },
       [theme.breakpoints.only('xs')]: {
         maxWidth: 300,
-        width: '100%'
+        width: '100%',
+        marginTop: theme.spacing(-12)
       }
     }
   }
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default featureStyles;

@@ -65,11 +65,11 @@ function Header(props) {
   const isMobile2 = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [menuList] = useState([
-    createData(navMenu[0], '#' + navMenu[0], 200),
-    createData(navMenu[1], '#' + navMenu[1], 70),
-    createData(navMenu[2], '#' + navMenu[2]),
-    createData(navMenu[3], '#' + navMenu[3], 80),
-    createData(navMenu[4], '#' + navMenu[4], 40),
+    createData(navMenu[0], '#' + navMenu[0], 13),
+    createData(navMenu[1], '#' + navMenu[1], 100),
+    createData(navMenu[2], '#' + navMenu[2], 100),
+    createData(navMenu[3], '#' + navMenu[3], 100),
+    createData(navMenu[4], '#' + navMenu[4], 100),
 
   ]);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -111,7 +111,7 @@ function Header(props) {
               ) : (
                 <AnchorLink href="#home">
                   <img src={brand.hosting.img} alt="logo" />
-                  <span className={classes.brandText}>{brand.hosting.name}</span>
+                  <span className={classes.brandText}>{brand.hosting.name_movil}</span>
                 </AnchorLink>
               )}
             </div>

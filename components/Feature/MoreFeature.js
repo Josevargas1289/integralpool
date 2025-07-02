@@ -68,64 +68,7 @@ function MoreFeature() {
           </Grid>
         </div>
         <Divider className={classes.divider} />
-        <div className={classes.item}>
-          <Grid container spacing={6}>
-            <Grid item md={6} xs={12}>
-              <div className={cx(classes.text, align.textRight)}>
-                <ScrollAnimation
-                  animateOnce
-                  animateIn="fadeInLeftShort"
-                  delay={400}
-                  duration={0.3}
-                >
-                  <div>
-                    <Title
-                      caption={t('hosting-landing.morefeature_headtitle2')}
-                      text={t('hosting-landing.morefeature_title2')}
-                      align={isMobile ? 'center' : 'right'}
-                    />
-                    <div className={isMobile ? align.textCenter : ''}>
-                      <Typography className={text.subtitle2} align={isMobile ? 'center' : 'right'}>
-                        {t('hosting-landing.morefeature_desc2')}
-                      </Typography>
-                      <Button variant="contained" color="primary">
-                        {t('hosting-landing.learnmore')}
-                      </Button>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </div>
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <figure className={classes.illustration}>
-                <img src="/images/hosting/illustration2.png" alt="feature" />
-              </figure>
-            </Grid>
-          </Grid>
-        </div>
         <Divider className={classes.divider} />
-        <div className={cx(classes.item, classes.last)}>
-          <Grid container>
-            <Grid item sm={12}>
-              <div className={cx(classes.text, align.textCenter)}>
-                <Title
-                  caption={t('hosting-landing.morefeature_headtitle3')}
-                  text={t('hosting-landing.morefeature_title3')}
-                  align="center"
-                />
-                <Typography className={text.subtitle2}>
-                  {t('hosting-landing.morefeature_desc3')}
-                </Typography>
-                <Button variant="contained" color="primary">
-                  {t('hosting-landing.learnmore')}
-                </Button>
-              </div>
-              <figure className={classes.illustration}>
-                <img src="/images/hosting/illustration3.png" alt="feature" />
-              </figure>
-            </Grid>
-          </Grid>
-        </div>
       </Container>
     </div>
   );

@@ -19,6 +19,8 @@ import ParticlesCanvas from 'components/ParticlesCanvas';
 import Testimonials from 'components/Testimonials';
 import PageNav from 'components/PageNav';
 import Notification from 'components/Notification';
+import MainFeature from 'components/Feature/MainFeature';
+import MoreFeature from 'components/Feature/MoreFeature';
 
 const sectionMargin = margin => (margin * 20);
 const useStyles = makeStyles({ uniqId: 'home' })(theme => ({
@@ -74,9 +76,9 @@ function Landing(props) {
             <section id="search">
               <Banner />
             </section>
-            <div id="promotion">
-              <Promotion />
-            </div>
+            <section id="promotion">
+              <MoreFeature />
+            </section>
             <section id="feature">
               <Feature />
             </section>

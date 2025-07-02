@@ -98,7 +98,7 @@ function Banner() {
                 translateY={[40, 40]}
                 className={cx(classes.cloudParallax, 'figure')}
               >
-                <div className={classes.cloudDeco} />
+                <div />
               </Parallax>
             </ParallaxProvider>
           </div>

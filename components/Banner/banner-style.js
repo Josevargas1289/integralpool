@@ -10,22 +10,12 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
   decoWrap: {
     position: 'absolute',
     width: '100%',
-    height: 760,
+    height: 500,
     clip: 'rect(0, auto, auto, 0)',
     overflow: 'hidden',
     background: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-    [theme.breakpoints.down('lg')]: {
-      display: 'none'
-    }
   },
-  cloudDeco: {
-    background: `url(${theme.palette.mode === 'dark' ? cloudBottomDark : cloudBottomLight}) repeat-x center 80px`,
-    width: '100%',
-    height: 360,
-    position: 'absolute',
-    opacity: 0.25,
-    bottom: -100
-  },
+
   parallaxWrap: {
     position: 'absolute',
     width: '100%',
@@ -43,7 +33,7 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     position: 'absolute',
     display: 'block',
     '& [class="figure"]': {
-      height: 500,
+      height: 600,
       margin: 0,
       width: '100%',
       display: 'block',
@@ -63,7 +53,7 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     position: 'fixed',
     width: '100%',
     height: 650,
-    bottom: -120,
+    bottom: -70,
     left: 0,
     opacity: theme.palette.mode === 'dark' ? 0.5 : 1,
     '& img': {
@@ -72,9 +62,9 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
   },
   bannerWrap: {
     position: 'relative',
-    padding: theme.spacing(25, 0, 20),
+    padding: theme.spacing(25, 0, 10),
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(30, 0, 35),
+      padding: theme.spacing(35, 0, 9),
     }
   },
   text: {
