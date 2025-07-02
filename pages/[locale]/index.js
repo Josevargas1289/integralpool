@@ -11,7 +11,6 @@ import { getStaticPaths, makeStaticProps } from 'lib/getStatic';
 import brand from 'public/text/brand';
 import MainContainer from 'components/MainContainer';
 import Banner from 'components/Banner';
-import Promotion from 'components/Promotion';
 import Feature from 'components/Feature';
 import Benefit from 'components/Benefit';
 import PricingPlan from 'components/PricingPlan';
@@ -19,7 +18,6 @@ import ParticlesCanvas from 'components/ParticlesCanvas';
 import Testimonials from 'components/Testimonials';
 import PageNav from 'components/PageNav';
 import Notification from 'components/Notification';
-import MainFeature from 'components/Feature/MainFeature';
 import MoreFeature from 'components/Feature/MoreFeature';
 
 const sectionMargin = margin => (margin * 20);

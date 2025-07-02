@@ -19,7 +19,7 @@ const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    opacity: 0.3, // ⭐️ para que el texto se vea mejor
+    opacity: 0.6, // ⭐️ para que el texto se vea mejor
     transition: 'transform 0.5s ease, filter 0.5s ease',
     filter: 'brightness(0.9)',
     animationName: '$fadeIn',
