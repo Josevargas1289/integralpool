@@ -2,7 +2,6 @@ import { makeStyles } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
 import flag from 'public/images/flag-logo.png';
 
-
 const flagIcon = {
   width: 16,
   height: 16,
@@ -67,7 +66,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
         background: theme.palette.background.paper
       },
       [theme.breakpoints.up('md')]: {
-        top: theme.spacing(-7),
+        top: theme.spacing(-8),
       }
     },
     [`&.${classes.openDrawer}`]: {
@@ -240,12 +239,11 @@ const headerStyles = makeStyles({ uniqId: 'header' })((theme, _params, classes) 
     '& span': {
       fontSize: 24
     }
-  }, 
+  },
   socialWrapper: {
   display: 'flex',
   justifyContent: 'center',
   padding: '1rem 0',
-  
 },
 brandText: {
   display: 'flex',
@@ -256,7 +254,6 @@ brandText: {
   color: '#03589A',
   padding: '1rem 0',
   textAlign: 'center',
-  
 }
 
 }));
