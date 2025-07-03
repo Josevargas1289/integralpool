@@ -119,7 +119,7 @@ function Header(props) {
               {!isTablet && (
                 <Fragment>
                   <PhoneIcon />
-                  +12 345 678 9
+                  +1 786 770 1666
                   <Divider className={classes.divider} />
                 </Fragment>
               )}
