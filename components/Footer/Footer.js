@@ -49,7 +49,7 @@ function Footer(props) {
   const { classes } = useStyles();
   const { toggleDir } = props;
   // Translation Function
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   return (
     <div className={classes.footer}>
