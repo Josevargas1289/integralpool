@@ -2,12 +2,12 @@ module.exports = {
   hosting: {
     name: 'Integral Pool Repairs',
     name_movil: 'Integral Pool',
-    desc: 'Luxiren Cloud Hosting - React Single Landing Page Template',
-    prefix: 'luxiren',
-    footerText: 'Luxiren Theme 2021',
-    logoText: 'Luxiren Hosting',
+    desc: 'Integral Pool Repairs',
+    prefix: 'IPR',
+    footerText: '2025',
+    logoText: 'Integral Pool Repairs',
     projectName: 'Integral Pool Repairs',
-    url: 'luxireact.ux-maestro.com/hosting',
+    url: 'integralpool.com',
     img: '/images/hosting-logo.png',
     notifMsg: 'Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.'
   }
