@@ -62,17 +62,30 @@ function Footer(props) {
                 {brand.hosting.projectName}
               </Typography>
             </div>
-            <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-              {t('hosting-landing.banner_title')}
+            <Typography
+              color="textPrimary"
+              className={classes.footerDesc}
+              gutterBottom
+            >
+              {t("hosting-landing.banner_title")}
             </Typography>
             <div className={classes.quickLinks}>
-              <Typography variant="h6" className={classes.title} color="textPrimary" gutterBottom>
-                {t('hosting-landing.footer_link')}
+              <Typography
+                variant="h6"
+                className={classes.title}
+                color="textPrimary"
+                gutterBottom
+              >
+                {t("hosting-landing.footer_link")}
               </Typography>
               <ul>
                 {footer.description.map((item, index) => (
                   <li key={item}>
-                    <Link href={footer.link[index]} variant="subtitle1" color="textSecondary">
+                    <Link
+                      href={footer.link[index]}
+                      variant="subtitle1"
+                      color="textSecondary"
+                    >
                       {item}
                     </Link>
                   </li>
@@ -82,33 +95,79 @@ function Footer(props) {
           </Grid>
           <Grid item xs={12} md={4}>
             {news.map((item, index) => (
-              <ButtonBase className={classes.blogItem} href="#" key={index.toString()}>
+              <ButtonBase
+                className={classes.blogItem}
+                href="#"
+                key={index.toString()}
+              >
                 <figure>
                   <img src={item.img} alt="thumb" />
                 </figure>
                 <div className={classes.listText}>
                   <Typography variant="button" className={classes.category}>
-                    {t('hosting-landing.footer_news')}
+                    {t("hosting-landing.footer_news")}
                   </Typography>
-                  <Typography display="block" component="p">Sed imperdiet enim ligula vitae viverra. </Typography>
+                  <Typography display="block" component="p">
+                    Sed imperdiet enim ligula vitae viverra.{" "}
+                  </Typography>
                 </div>
               </ButtonBase>
             ))}
           </Grid>
           <Grid item xs={12} md={3}>
             <div className={classes.socmed}>
-              <IconButton aria-label="FB" className={classes.margin} size="small">
-                <i className="ion-logo-twitter" />
-              </IconButton>
-              <IconButton aria-label="TW" className={classes.margin} size="small">
-                <i className="ion-logo-facebook" />
-              </IconButton>
-              <IconButton aria-label="IG" className={classes.margin} size="small">
-                <i className="ion-logo-instagram" />
-              </IconButton>
-              <IconButton aria-label="LI" className={classes.margin} size="small">
-                <i className="ion-logo-linkedin" />
-              </IconButton>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton
+                  aria-label="Twitter"
+                  className={classes.margin}
+                  size="small"
+                >
+                  <i className="ion-logo-twitter" />
+                </IconButton>
+              </a>
+              <a
+                href="https://www.facebook.com/share/15gF7rWhUi/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton
+                  aria-label="Facebook"
+                  className={classes.margin}
+                  size="small"
+                >
+                  <i className="ion-logo-facebook" />
+                </IconButton>
+              </a>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton
+                  aria-label="Instagram"
+                  className={classes.margin}
+                  size="small"
+                >
+                  <i className="ion-logo-instagram" />
+                </IconButton>
+              </a>
+              <a
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton
+                  aria-label="LinkedIn"
+                  className={classes.margin}
+                  size="small"
+                >
+                  <i className="ion-logo-linkedin" />
+                </IconButton>
+              </a>
             </div>
             <SelectLang toggleDir={toggleDir} />
             <Copyright />
