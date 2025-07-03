@@ -28,7 +28,7 @@ const HeadComponent = () => (
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/iprIco.png-16x16.png" />
     <link rel="manifest" href="/favicons/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png" />
+    <meta name="msapplication-TileImage" content="/favicons/iprIco.png-16x16.png" />
     {/* PWA primary color */}
     <meta name="theme-color" content={theme.cloud.palette.primary.main} />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet" />
@@ -52,7 +52,7 @@ const HeadComponent = () => (
       content={brand.hosting.desc}
     />
     <meta name="twitter:site" content={brand.hosting.url} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={brand.hosting.url} />
     <meta name="twitter:image" content={brand.hosting.img} />
     <meta property="og:image" content={brand.hosting.img} />
     <meta property="og:image:width" content="1200" />
