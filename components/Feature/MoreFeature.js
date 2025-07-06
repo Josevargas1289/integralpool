@@ -31,7 +31,7 @@ function MoreFeature() {
       <Container fixed={isDesktop}>
         <div className={classes.item}>
           <Grid
-            direction={isMobile ? 'column-reverse' : 'row'}
+            direction={isMobile ? "column-reverse" : "row"}
             container
             spacing={6}
           >
@@ -50,17 +50,22 @@ function MoreFeature() {
                 >
                   <div>
                     <Title
-                      caption={t('hosting-landing.morefeature_headtitle1')}
-                      text={t('hosting-landing.morefeature_title1')}
-                      align={isMobile ? 'center' : 'left'}
+                      caption={t("hosting-landing.morefeature_headtitle1")}
+                      text={t("hosting-landing.morefeature_title1")}
+                      align={isMobile ? "center" : "left"}
                     />
-                    <div className={isMobile ? align.textCenter : ''}>
-                      <Typography className={text.subtitle2} align={isMobile ? 'center' : 'left'}>
-                        {t('hosting-landing.morefeature_desc1')}
+                    <div className={isMobile ? align.textCenter : ""}>
+                      <Typography
+                        className={text.subtitle2}
+                        align={isMobile ? "center" : "left"}
+                      >
+                        {t("hosting-landing.morefeature_desc1")}
                       </Typography>
-                      <Button variant="contained" color="primary">
-                        {t('hosting-landing.learnmore')}
-                      </Button>
+                      <a href="/contact" style={{ textDecoration: "none" }}>
+                        <Button variant="contained" color="primary">
+                          {t("hosting-landing.learnmore")}
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -68,7 +73,6 @@ function MoreFeature() {
             </Grid>
           </Grid>
         </div>
-        <Divider className={classes.divider} />
         <Divider className={classes.divider} />
       </Container>
     </div>
