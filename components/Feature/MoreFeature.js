@@ -11,6 +11,7 @@ import { useTranslation } from 'next-i18next';
 import { useTextAlign, useText } from 'theme/common';
 import Title from '../Title';
 import useStyles from './feature-style';
+import Carousel from '../Carrusell/Carrusell'
 
 function MoreFeature() {
   // Theme breakpoints
@@ -36,7 +37,7 @@ function MoreFeature() {
           >
             <Grid item md={6} xs={12}>
               <figure className={classes.illustration}>
-                <img src="/images/hosting/illustration1.png" alt="feature" />
+                <Carousel />
               </figure>
             </Grid>
             <Grid item md={6} xs={12}>

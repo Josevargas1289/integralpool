@@ -90,5 +90,26 @@
     "footer_link": "Quick links",
     "footer_news": "News",
     "subscribe": "Subscribe"
-  }
+  },
+  "carousel": {
+  "title1": "First Image",
+  "subtitle1": "Description of the first image",
+  "title2": "Second Image",
+  "subtitle2": "Description of the second image",
+  "title3": "Third Image",
+  "subtitle3": "Description of the third image",
+  "title4": "Fourth Image",
+  "subtitle4": "Description of the fourth image",
+  "title5": "Fifth Image",
+  "subtitle5": "Description of the fifth image",
+  "title6": "Sixth Image",
+  "subtitle6": "Description of the sixth image",
+  "title7": "Seventh Image",
+  "subtitle7": "Description of the seventh image",
+  "title8": "Eighth Image",
+  "subtitle8": "Description of the eighth image",
+  "title9": "Ninth Image",
+  "subtitle9": "Description of the ninth image"
+}
+
 }

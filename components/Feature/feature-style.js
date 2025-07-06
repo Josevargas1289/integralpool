@@ -18,7 +18,7 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       height: 100,
       margin: '0 auto',
       borderRadius: '50%',
-      marginBottom: theme.spacing(3), // ← MENOR separación en móvil
+      marginBottom: theme.spacing(1), // ← MENOR separación en móvil
       [theme.breakpoints.down('sm')]: {
         width: 80,
         height: 80,
@@ -135,7 +135,7 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       [theme.breakpoints.only('xs')]: {
         maxWidth: 300,
         width: '100%',
-        marginTop: theme.spacing(-12)
+        marginTop: theme.spacing(3),
       }
     }
   }
