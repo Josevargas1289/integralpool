@@ -3,7 +3,9 @@ const link = {
     home: '/',
     contact: '/contact',
     login: '/login',
-    register: '/register'
+    register: '/register',
+    faq:'/faq'
+
   }
 };
 

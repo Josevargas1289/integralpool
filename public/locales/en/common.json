@@ -9,6 +9,7 @@
   "contact_title": "Free project quote",
   "contact_title2": "Say Hello",
   "contact_subtitle": "Have a question? Ready to cut costs and generate new revenue? Or just want to say hi? Leave us a message.",
+  "faq_subtitle": "Find quick answers to your questions.",
   "form_name": "What’s your name? *",
   "form_email": "What’s your email? *",
   "form_phone": "What’s your phone number?",
@@ -51,8 +52,9 @@
     "header_feature": "Services",
     "header_benefit": "Projects",
     "header_pricing": "Processes",
-    "header_testimonials": "FAQs",
+    "header_testimonials": "Galeries",
     "header_contact": "Contact",
+    "header_faq": "FAQs",
     "banner_title": "Tailor-made residential pools and patios",
     "banner_subtitle": "Functional, durable, and aesthetic designs. Free personalized consultation on your first visit.",
     "banner_label": "Enter your domain name",
@@ -118,6 +120,16 @@
   "mision_texto": "To provide INTEGRAL solutions in the design, construction, and maintenance of pools, ensuring the well-being and INTEGRITY of all individuals involved. We are committed to meeting the highest technical standards, maximizing the value, safety, and enjoyment of our clients’ investments. We build long-lasting relationships based on Honesty, Responsibility, Trust, and Quality, ensuring complete satisfaction.",
   "vision_titulo": "Vision",
   "vision_texto": "To be the leading company in pool construction and water system management, recognized for our human INTEGRITY, technical excellence, and truly INTEGRAL service. We aspire to go beyond, positively impacting the lives of our team, our clients, and the community, leaving a lasting and indelible mark of responsibility, quality, trust, and well-being."
-}
+},
+"faq": {
+    "q1": "How long does it take to install a pool?",
+    "a1": "It depends on the size and features, but on average it takes 2 to 4 weeks.",
+    "q2": "What maintenance does a residential pool require?",
+    "a2": "It requires regular cleaning, and weekly pH and chlorine level checks.",
+    "q3": "Do you offer warranties on your products?",
+    "a3": "Yes, we offer warranties of up to 10 years depending on the service or product.",
+    "q4": "Can I automate my filtration system?",
+    "a4": "Yes, we offer automation systems for greater convenience and efficiency."
+  }
 
 }

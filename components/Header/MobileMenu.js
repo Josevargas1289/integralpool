@@ -12,6 +12,7 @@ import navMenu from "./menu";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 
+
 function MobileMenu(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
@@ -49,6 +50,17 @@ function MobileMenu(props) {
           >
             <ListItemText
               primary={t("hosting-landing.header_contact")}
+              className={classes.menuList}
+            />
+          </ListItem>
+          <ListItem
+            button
+            component="a"
+            href={curLang + "/faq"}
+            style={{ animationDuration: navMenu.length * 0.15 + "s" }}
+          >
+            <ListItemText
+              primary={t("hosting-landing.header_faq")}
               className={classes.menuList}
             />
           </ListItem>

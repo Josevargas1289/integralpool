@@ -9,6 +9,7 @@
   "contact_title": "Cotización de proyecto gratuita",
   "contact_title2": "Salúdanos",
   "contact_subtitle": "¿Tienes alguna pregunta? ¿Estás listo para reducir costos y generar nuevos ingresos? ¿O simplemente quieres saludar? Déjanos un mensaje.",
+  "faq_subtitle": "Encuentra respuestas rápidas a tus inquietudes.",
   "form_name": "¿Cuál es tu nombre? *",
   "form_email": "¿Cuál es tu correo electrónico? *",
   "form_phone": "¿Cuál es tu número de teléfono?",
@@ -51,8 +52,9 @@
     "header_feature": "Servicios",
     "header_benefit": "Proyectos",
     "header_pricing": "Procesos",
-    "header_testimonials": "Preguntas",
+    "header_testimonials": "Galerias",
     "header_contact": "Contacto",
+    "header_faq": "Preguntas",
     "banner_title": "Piscinas y patios residenciales a tu medida",
     "banner_subtitle": "Diseños funcionales, duraderos y estéticos. Asesoría personalizada gratuita en tu primera visita.",
     "banner_label": "Ingresa tu nombre de dominio",
@@ -117,6 +119,16 @@
   "mision_texto": "Brindar soluciones ITEGRALES en diseño, construcción y mantenimiento de piscinas, garantizando el bienestar y la INTEGRIDAD de todas las personas involucradas. Nos comprometemos a cumplir con los más altos estándares técnicos, maximizando el valor, la seguridad y el disfrute de la inversión de nuestros clientes. Construimos relaciones duraderas basadas en la Honestidad, Responsabilidad, confianza, la calidad Garantizando la plena satisfacción.",
   "vision_titulo": "Visión",
   "vision_texto": "Ser la empresa líder en construcción de piscinas y gestión de sistemas de agua, reconocida por nuestra INTEGRIDAD humana, excelencia técnica y un servicio verdaderamente INTEGRO. Aspiramos a trascender, impactando positivamente en la vida de nuestro equipo, nuestros clientes y la comunidad, dejando una huella duradera e imborrable de responsabilidad, calidad, confianza y bienestar."
+},
+"faq": {
+  "q1": "¿Cuánto tiempo tarda la instalación de una piscina?",
+  "a1": "Depende del tamaño y características, pero en promedio de 2 a 4 semanas.",
+  "q2": "¿Qué mantenimiento requiere una piscina residencial?",
+  "a2": "Requiere limpieza regular, control de pH y niveles de cloro semanalmente.",
+  "q3": "¿Ofrecen garantía en sus productos?",
+  "a3": "Sí, ofrecemos garantía de hasta 10 años dependiendo del servicio o producto.",
+  "q4": "¿Puedo automatizar mi sistema de filtración?",
+  "a4": "Sí, contamos con sistemas de automatización para mayor comodidad y eficiencia."
 }
 
 }

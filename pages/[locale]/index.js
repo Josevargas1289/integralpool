@@ -84,7 +84,7 @@ function Landing(props) {
               <PricingPlan />
             </section>
             <section id="testimonials" className={classes.spaceTopShort}>
-              <Testimonials />
+              <MoreFeature />
             </section>
             {!isTablet && <Notification />}
           </main>

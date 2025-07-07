@@ -19,6 +19,10 @@ import Settings from './Settings';
 import MobileMenu from './MobileMenu';
 import useStyles from './header-style';
 import navMenu from './menu';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+
+
+
 
 let counter = 0;
 function createData(name, url, offset) {
@@ -78,7 +82,9 @@ function Header(props) {
   };
   return (
     <Fragment>
-      { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />) }
+      {isMobile && (
+        <MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />
+      )}
       <AppBar
         component="div"
         position="relative"
@@ -92,14 +98,18 @@ function Header(props) {
         <div className={classes.headerTop}>
           <Container fixed={isDesktop}>
             <div className={classes.logo}>
-              { isMobile && (
+              {isMobile && (
                 <IconButton
                   onClick={handleOpenDrawer}
-                  className={cx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
+                  className={cx(
+                    "hamburger hamburger--spin",
+                    classes.mobileMenu,
+                    openDrawer && "is-active"
+                  )}
                   size="large"
                 >
                   <span className="hamburger-box">
-                    <span className={cx(classes.bar, 'hamburger-inner')} />
+                    <span className={cx(classes.bar, "hamburger-inner")} />
                   </span>
                 </IconButton>
               )}
@@ -111,7 +121,9 @@ function Header(props) {
               ) : (
                 <AnchorLink href="#home">
                   <img src={brand.hosting.img} alt="logo" />
-                  <span className={classes.brandText}>{brand.hosting.name_movil}</span>
+                  <span className={classes.brandText}>
+                    {brand.hosting.name_movil}
+                  </span>
                 </AnchorLink>
               )}
             </div>
@@ -123,7 +135,11 @@ function Header(props) {
                   <Divider className={classes.divider} />
                 </Fragment>
               )}
-              <Settings toggleDark={onToggleDark} toggleDir={onToggleDir} invert={invert} />
+              <Settings
+                toggleDark={onToggleDark}
+                toggleDir={onToggleDir}
+                invert={invert}
+              />
             </nav>
           </Container>
         </div>
@@ -132,36 +148,51 @@ function Header(props) {
             <Container fixed>
               <nav className={classes.navMenu}>
                 {invert ? (
-                  <IconButton component={Link} className={classes.icon} href={routeLink.hosting.home} size="large">
+                  <IconButton
+                    component={Link}
+                    className={classes.icon}
+                    href={routeLink.hosting.home}
+                    size="large"
+                  >
                     <HomeIcon />
                   </IconButton>
                 ) : (
-                  <IconButton className={classes.icon} href="#home" size="large">
+                  <IconButton
+                    className={classes.icon}
+                    href="#home"
+                    size="large"
+                  >
                     <HomeIcon />
                   </IconButton>
                 )}
                 {isDesktop && (
-                  <Scrollspy
-                    items={navMenu}
-                    currentClassName="active"
-                  >
-                    {menuList.map(item => (
+                  <Scrollspy items={navMenu} currentClassName="active">
+                    {menuList.map((item) => (
                       <li key={item.id.toString()}>
                         {invert ? (
-                          <Button component={Link} href={'/' + item.url}>
-                            {t('hosting-landing.header_' + item.name)}
+                          <Button component={Link} href={"/" + item.url}>
+                            {t("hosting-landing.header_" + item.name)}
                           </Button>
                         ) : (
-                          <Button component={LinkBtn} offset={item.offset || 0} href={item.url}>
-                            {t('hosting-landing.header_' + item.name)}
+                          <Button
+                            component={LinkBtn}
+                            offset={item.offset || 0}
+                            href={item.url}
+                          >
+                            {t("hosting-landing.header_" + item.name)}
                           </Button>
                         )}
                       </li>
                     ))}
                     <li>
                       <Button component={Link} href={routeLink.hosting.contact}>
-                        {t('hosting-landing.header_contact')}
+                        {t("hosting-landing.header_contact")}
                       </Button>
+                      <li>
+                        <Button component={Link} href={routeLink.hosting.faq}>
+                          <ContactSupportIcon sx={{ color: 'text.secondary' }} />
+                        </Button>
+                      </li>
                     </li>
                   </Scrollspy>
                 )}
