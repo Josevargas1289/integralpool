@@ -5,33 +5,33 @@ import Container from '@mui/material/Container';
 import ScrollAnimation from 'react-scroll-animation-wrapper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import { useTranslation } from 'next-i18next';
 import { useTextAlign, useText } from 'theme/common';
 import Title from '../Title';
+import Carousel from '../Carrusell/Carrusell';
+import ModalMisionVision from '../modalMisionVision/ModalMisionVision'; // ✅ Modal importado
+
 import useStyles from './feature-style';
-import Carousel from '../Carrusell/Carrusell'
 
 function MoreFeature() {
-  // Theme breakpoints
   const theme = useTheme();
   const { classes: text } = useText();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  // Translation Function
   const { t } = useTranslation('common');
 
   const { classes, cx } = useStyles();
   const { classes: align } = useTextAlign();
+
   return (
     <div className={classes.moreFeature}>
       <div className={classes.chartDeco} />
       <Container fixed={isDesktop}>
         <div className={classes.item}>
           <Grid
-            direction={isMobile ? "column-reverse" : "row"}
+            direction={isMobile ? 'column-reverse' : 'row'}
             container
             spacing={6}
           >
@@ -50,22 +50,20 @@ function MoreFeature() {
                 >
                   <div>
                     <Title
-                      caption={t("hosting-landing.morefeature_headtitle1")}
-                      text={t("hosting-landing.morefeature_title1")}
-                      align={isMobile ? "center" : "left"}
+                      caption={t('hosting-landing.morefeature_headtitle1')}
+                      text={t('hosting-landing.morefeature_title1')}
+                      align={isMobile ? 'center' : 'left'}
                     />
-                    <div className={isMobile ? align.textCenter : ""}>
+                    <div className={isMobile ? align.textCenter : ''}>
                       <Typography
                         className={text.subtitle2}
-                        align={isMobile ? "center" : "left"}
+                        align={isMobile ? 'center' : 'left'}
                       >
-                        {t("hosting-landing.morefeature_desc1")}
+                        {t('hosting-landing.morefeature_desc1')}
                       </Typography>
-                      <a href="/contact" style={{ textDecoration: "none" }}>
-                        <Button variant="contained" color="primary">
-                          {t("hosting-landing.learnmore")}
-                        </Button>
-                      </a>
+
+                      {/* ✅ Solo se muestra el botón para abrir el modal */}
+                      <ModalMisionVision />
                     </div>
                   </div>
                 </ScrollAnimation>

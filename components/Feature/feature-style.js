@@ -18,11 +18,11 @@ const featureStyles = makeStyles({ uniqId: 'feature' })((theme, _params, classes
       height: 100,
       margin: '0 auto',
       borderRadius: '50%',
-      marginBottom: theme.spacing(1), // ← MENOR separación en móvil
+      marginBottom: theme.spacing(10), // ← MENOR separación en móvil
       [theme.breakpoints.down('sm')]: {
         width: 80,
         height: 80,
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(6),
       }
     },
     '& img': {
