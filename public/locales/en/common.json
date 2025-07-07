@@ -52,7 +52,7 @@
     "header_feature": "Services",
     "header_benefit": "Allies",
     "header_pricing": "Processes",
-    "header_testimonials": "Galeries",
+    "header_galeries": "Galeries",
     "header_contact": "Contact",
     "header_faq": "FAQs",
     "banner_title": "Tailor-made residential pools and patios",
@@ -94,7 +94,10 @@
     "subscribe": "Subscribe",
     "allies_headtitle": "Our Partners",
     "allies_title": "Technology and Trust at Your Service",
-    "allies_description": "We work with leading brands to provide efficient, innovative, and reliable solutions in pool automation, heating, and water treatment."
+    "allies_description": "We work with leading brands to provide efficient, innovative, and reliable solutions in pool automation, heating, and water treatment.",
+    "gallery_headtitle": "Photo Gallery",
+    "gallery_title": "Explore Our Best Moments",
+    "gallery_description": "Discover our work and services through images and videos that reflect our quality and commitment."
   },
   "carousel": {
     "title1": "Functional Aesthetics",
@@ -133,5 +136,9 @@
     "a3": "Yes, we offer warranties of up to 10 years depending on the service or product.",
     "q4": "Can I automate my filtration system?",
     "a4": "Yes, we offer automation systems for greater convenience and efficiency."
-  }
+  },
+  "mediaGallery": {
+  "title": "Media Gallery",
+  "description": "Explore our featured images and videos."
+}
 }

@@ -52,7 +52,7 @@
     "header_feature": "Servicios",
     "header_benefit": "Aliados",
     "header_pricing": "Procesos",
-    "header_testimonials": "Galerias",
+    "header_galeries": "Galerias",
     "header_contact": "Contacto",
     "header_faq": "Preguntas",
     "banner_title": "Piscinas y patios residenciales a tu medida",
@@ -93,7 +93,10 @@
     "subscribe": "Suscribirse",
     "allies_headtitle": "Nuestros Aliados",
     "allies_title": "Tecnología y confianza a tu servicio",
-    "allies_description": "Trabajamos con marcas líderes en el mercado para ofrecer soluciones eficientes, innovadoras y confiables en automatización, climatización y tratamiento de agua para piscinas."
+    "allies_description": "Trabajamos con marcas líderes en el mercado para ofrecer soluciones eficientes, innovadoras y confiables en automatización, climatización y tratamiento de agua para piscinas.",
+    "gallery_headtitle": "Galería de Fotos",
+    "gallery_title": "Explora Nuestros Mejores Momentos",
+    "gallery_description": "Descubre nuestro trabajo y servicios a través de imágenes y videos que reflejan nuestra calidad y compromiso."
   },
   "carousel": {
   "title1": "Estética Funcional",
@@ -132,6 +135,10 @@
   "a3": "Sí, ofrecemos garantía de hasta 10 años dependiendo del servicio o producto.",
   "q4": "¿Puedo automatizar mi sistema de filtración?",
   "a4": "Sí, contamos con sistemas de automatización para mayor comodidad y eficiencia."
+},
+"mediaGallery": {
+  "title": "Galería Multimedia",
+  "description": "Explora nuestras imágenes y videos destacados."
 }
 
 }

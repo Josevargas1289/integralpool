@@ -4,6 +4,9 @@ import Head from 'next/head';
 import { makeStyles } from 'tss-react/mui';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
@@ -20,6 +23,7 @@ import PageNav from 'components/PageNav';
 import Notification from 'components/Notification';
 import MoreFeature from 'components/Feature/MoreFeature';
 import WhatsaapButton from '../../components/WhatsaapButton/whatsappButton';
+import MediaGallery from '../../components/mediaGallery/MediaGallery'
 
 const sectionMargin = margin => (margin * 20);
 const useStyles = makeStyles({ uniqId: 'home' })(theme => ({
@@ -83,8 +87,8 @@ function Landing(props) {
             <section id="pricing" className={classes.spaceTopShort}>
               <PricingPlan />
             </section>
-            <section id="testimonials" className={classes.spaceTopShort}>
-              <MoreFeature />
+            <section id="galeries" className={classes.spaceTopShort}>
+              <MediaGallery />
             </section>
             {!isTablet && <Notification />}
           </main>

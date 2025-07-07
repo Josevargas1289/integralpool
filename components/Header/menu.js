@@ -3,7 +3,7 @@ const menu = [
   'feature',
   'benefit',
   'pricing',
-  'testimonials',
+  'galeries',
 ];
 
 export default menu;
