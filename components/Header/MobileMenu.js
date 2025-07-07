@@ -45,22 +45,22 @@ function MobileMenu(props) {
           <ListItem
             button
             component="a"
-            href={curLang + routeLink.hosting.contact}
+            href={curLang + "/faq"}
             style={{ animationDuration: navMenu.length * 0.15 + "s" }}
           >
             <ListItemText
-              primary={t("hosting-landing.header_contact")}
+              primary={t("hosting-landing.header_faq")}
               className={classes.menuList}
             />
           </ListItem>
           <ListItem
             button
             component="a"
-            href={curLang + "/faq"}
+            href={curLang + routeLink.hosting.contact}
             style={{ animationDuration: navMenu.length * 0.15 + "s" }}
           >
             <ListItemText
-              primary={t("hosting-landing.header_faq")}
+              primary={t("hosting-landing.header_contact")}
               className={classes.menuList}
             />
           </ListItem>

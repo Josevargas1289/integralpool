@@ -50,7 +50,7 @@
     "header_light": "Claro",
     "header_promotion": "Quienes Somos",
     "header_feature": "Servicios",
-    "header_benefit": "Proyectos",
+    "header_benefit": "Aliados",
     "header_pricing": "Procesos",
     "header_testimonials": "Galerias",
     "header_contact": "Contacto",
@@ -90,7 +90,10 @@
     "footer_mail": "Tu correo electrónico",
     "footer_link": "Enlaces rápidos",
     "footer_news": "Noticias",
-    "subscribe": "Suscribirse"
+    "subscribe": "Suscribirse",
+    "allies_headtitle": "Nuestros Aliados",
+    "allies_title": "Tecnología y confianza a tu servicio",
+    "allies_description": "Trabajamos con marcas líderes en el mercado para ofrecer soluciones eficientes, innovadoras y confiables en automatización, climatización y tratamiento de agua para piscinas."
   },
   "carousel": {
   "title1": "Estética Funcional",

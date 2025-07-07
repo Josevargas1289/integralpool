@@ -50,7 +50,7 @@
     "header_light": "Light",
     "header_promotion": "About Us",
     "header_feature": "Services",
-    "header_benefit": "Projects",
+    "header_benefit": "Allies",
     "header_pricing": "Processes",
     "header_testimonials": "Galeries",
     "header_contact": "Contact",
@@ -91,37 +91,40 @@
     "footer_mail": "Your email",
     "footer_link": "Quick links",
     "footer_news": "News",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "allies_headtitle": "Our Partners",
+    "allies_title": "Technology and Trust at Your Service",
+    "allies_description": "We work with leading brands to provide efficient, innovative, and reliable solutions in pool automation, heating, and water treatment."
   },
-  "carousel":{
-  "title1":"Functional Aesthetics",
-  "subtitle1":"A patio that transforms your outdoor space into comfort, style, and functionality.",
-  "title2":"Dream Pool",
-  "subtitle2":"Impeccable design that combines beauty and luxury for your home.",
-  "title3":"Total Harmony",
-  "subtitle3":"A custom-made pool, tailored to your lifestyle and space.",
-  "title4":"Natural Elegance",
-  "subtitle4":"A more beautiful home with a pool that enhances its architecture.",
-  "title5":"Ocean View Bliss",
-  "subtitle5":"Enjoy your ocean-view patio, designed for peace and pleasure.",
-  "title6":"Cozy Design",
-  "subtitle6":"Green areas that blend aesthetics, functionality, and relaxation.",
-  "title7":"Inspiring Process",
-  "subtitle7":"Every step matters. Watch your patio transform into a unique space.",
-  "title8":"Perfect Finish",
-  "subtitle8":"Flawless results, ready for you to enjoy worry-free.",
-  "title9":"Purposeful Spaces",
-  "subtitle9":"Maximum use of space with design, detail, and harmony."
-},
-"modal": {
-  "ver_mas": "Learn More",
-  "cerrar": "Close",
-  "mision_titulo": "Mission",
-  "mision_texto": "To provide INTEGRAL solutions in the design, construction, and maintenance of pools, ensuring the well-being and INTEGRITY of all individuals involved. We are committed to meeting the highest technical standards, maximizing the value, safety, and enjoyment of our clients’ investments. We build long-lasting relationships based on Honesty, Responsibility, Trust, and Quality, ensuring complete satisfaction.",
-  "vision_titulo": "Vision",
-  "vision_texto": "To be the leading company in pool construction and water system management, recognized for our human INTEGRITY, technical excellence, and truly INTEGRAL service. We aspire to go beyond, positively impacting the lives of our team, our clients, and the community, leaving a lasting and indelible mark of responsibility, quality, trust, and well-being."
-},
-"faq": {
+  "carousel": {
+    "title1": "Functional Aesthetics",
+    "subtitle1": "A patio that transforms your outdoor space into comfort, style, and functionality.",
+    "title2": "Dream Pool",
+    "subtitle2": "Impeccable design that combines beauty and luxury for your home.",
+    "title3": "Total Harmony",
+    "subtitle3": "A custom-made pool, tailored to your lifestyle and space.",
+    "title4": "Natural Elegance",
+    "subtitle4": "A more beautiful home with a pool that enhances its architecture.",
+    "title5": "Ocean View Bliss",
+    "subtitle5": "Enjoy your ocean-view patio, designed for peace and pleasure.",
+    "title6": "Cozy Design",
+    "subtitle6": "Green areas that blend aesthetics, functionality, and relaxation.",
+    "title7": "Inspiring Process",
+    "subtitle7": "Every step matters. Watch your patio transform into a unique space.",
+    "title8": "Perfect Finish",
+    "subtitle8": "Flawless results, ready for you to enjoy worry-free.",
+    "title9": "Purposeful Spaces",
+    "subtitle9": "Maximum use of space with design, detail, and harmony."
+  },
+  "modal": {
+    "ver_mas": "Learn More",
+    "cerrar": "Close",
+    "mision_titulo": "Mission",
+    "mision_texto": "To provide INTEGRAL solutions in the design, construction, and maintenance of pools, ensuring the well-being and INTEGRITY of all individuals involved. We are committed to meeting the highest technical standards, maximizing the value, safety, and enjoyment of our clients’ investments. We build long-lasting relationships based on Honesty, Responsibility, Trust, and Quality, ensuring complete satisfaction.",
+    "vision_titulo": "Vision",
+    "vision_texto": "To be the leading company in pool construction and water system management, recognized for our human INTEGRITY, technical excellence, and truly INTEGRAL service. We aspire to go beyond, positively impacting the lives of our team, our clients, and the community, leaving a lasting and indelible mark of responsibility, quality, trust, and well-being."
+  },
+  "faq": {
     "q1": "How long does it take to install a pool?",
     "a1": "It depends on the size and features, but on average it takes 2 to 4 weeks.",
     "q2": "What maintenance does a residential pool require?",
@@ -131,5 +134,4 @@
     "q4": "Can I automate my filtration system?",
     "a4": "Yes, we offer automation systems for greater convenience and efficiency."
   }
-
 }
