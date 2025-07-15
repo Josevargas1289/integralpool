@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import emailjs from '@emailjs/browser';
+import {
+  Button, useMediaQuery, IconButton, FormControlLabel,
+  Paper, Container, Grid, Typography, Dialog, DialogTitle,
+  DialogContent, DialogActions
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Snackbar from '@mui/material/Snackbar';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
 import brand from 'public/text/brand';
@@ -29,8 +26,8 @@ function Contact() {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const [values, setValues] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     phone: '',
     company: '',
     message: ''
@@ -38,11 +35,10 @@ function Contact() {
 
   useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', value => value);
-  });
-
-  const [openNotif, setNotif] = useState(false);
+  }, []);
 
   const [check, setCheck] = useState(false);
+  const [modal, setModal] = useState({ open: false, success: true });
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -52,12 +48,40 @@ function Contact() {
     setCheck(event.target.checked);
   };
 
-  const handleSubmit = () => {
-    setNotif(true);
+  const handleCloseModal = () => {
+    setModal({ ...modal, open: false });
   };
 
-  const handleClose = () => {
-    setNotif(false);
+  const handleSubmit = () => {
+    const templateParams = {
+      from_name: values.from_name,
+      reply_to: values.from_email,
+      phone: values.phone,
+      company: values.company,
+      message: values.message
+    };
+
+    emailjs.send(
+      'service_f301enm',
+      'template_6y12aex',
+      templateParams,
+      '7M01QDWgCwoVcON7R'
+    ).then(
+      () => {
+        setModal({ open: true, success: true });
+        setValues({
+          from_name: '',
+          from_email: '',
+          phone: '',
+          company: '',
+          message: ''
+        });
+        setCheck(false);
+      },
+      () => {
+        setModal({ open: true, success: false });
+      }
+    );
   };
 
   return (
@@ -65,17 +89,28 @@ function Contact() {
       <div className={classes.cloudDeco}>
         <ParallaxCloud />
       </div>
-      <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        key="top right"
-        open={openNotif}
-        autoHideDuration={4000}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">Message Sent</span>}
-      />
+
+      {/* MODAL */}
+      <Dialog open={modal.open} onClose={handleCloseModal}>
+        <DialogTitle>
+          {modal.success
+            ? t('hosting-landing.modal_contact.title')
+            : t('hosting-landing.modal_contact.error_title')}
+        </DialogTitle>
+        <DialogContent>
+          <Typography>
+            {modal.success
+              ? t('hosting-landing.modal_contact.message')
+              : t('hosting-landing.modal_contact.error_message')}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModal} color="primary">
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       {!isDesktop && (
         <div className={cx(classes.logo, classes.logoHeader)}>
           <Link href={routeLink.hosting.home}>
@@ -122,9 +157,9 @@ function Contact() {
                       variant="filled"
                       className={classes.input}
                       label={t('form_name')}
-                      onChange={handleChange('name')}
-                      name="Name"
-                      value={values.name}
+                      onChange={handleChange('from_name')}
+                      name="from_name"
+                      value={values.from_name}
                       validators={['required']}
                       errorMessages={['This field is required']}
                     />
@@ -134,9 +169,9 @@ function Contact() {
                       variant="filled"
                       className={classes.input}
                       label={t('form_email')}
-                      onChange={handleChange('email')}
-                      name="Email"
-                      value={values.email}
+                      onChange={handleChange('from_email')}
+                      name="from_email"
+                      value={values.from_email}
                       validators={['required', 'isEmail']}
                       errorMessages={['This field is required', 'email is not valid']}
                     />
@@ -147,7 +182,7 @@ function Contact() {
                       className={classes.input}
                       label={t('form_phone')}
                       onChange={handleChange('phone')}
-                      name="Phone"
+                      name="phone"
                       value={values.phone}
                     />
                   </Grid>
@@ -157,7 +192,7 @@ function Contact() {
                       className={classes.input}
                       label={t('form_company')}
                       onChange={handleChange('company')}
-                      name="Company"
+                      name="company"
                       value={values.company}
                     />
                   </Grid>
@@ -169,7 +204,7 @@ function Contact() {
                       className={classes.input}
                       label={t('form_message')}
                       onChange={handleChange('message')}
-                      name="Message"
+                      name="message"
                       value={values.message}
                     />
                   </Grid>
@@ -188,8 +223,7 @@ function Contact() {
                     )}
                     label={(
                       <span>
-                        {t('form_terms')}
-                        <br />
+                        {t('form_terms')}<br />
                         <a href="#">
                           {t('form_privacy')}
                         </a>

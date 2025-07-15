@@ -98,6 +98,12 @@
       "contact": "Contact",
       "faq": "FAQ"
     },
+    "modal_contact": {
+      "title": "Message sent",
+      "message": "We will contact you shortly.",
+      "error_title": "Sending failed",
+      "error_message": "There was a problem sending your message. Please try again."
+    },
     "footer_news": "News",
     "subscribe": "Subscribe",
     "allies_headtitle": "Our Partners",

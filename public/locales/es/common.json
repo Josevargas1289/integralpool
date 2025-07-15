@@ -97,6 +97,12 @@
       "contact": "Contácto",
       "faq": "Preguntas"
     },
+    "modal_contact": {
+      "title": "Mensaje enviado",
+      "message": "Pronto nos contactaremos con usted.",
+      "error_title": "Error al enviar",
+      "error_message": "Hubo un problema al enviar tu mensaje. Intenta nuevamente."
+    },
     "footer_news": "Noticias",
     "subscribe": "Suscribirse",
     "allies_headtitle": "Nuestros Aliados",
