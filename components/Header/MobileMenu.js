@@ -12,12 +12,17 @@ import navMenu from "./menu";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 
-
 function MobileMenu(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const { t, i18n } = useTranslation("common");
   const curLang = "/" + i18n.language;
+
+  // ✅ Lista flexible: aquí defines qué secciones ocultar en móvil
+  const excludedMobileMenus = ['pricing']; // ← solo elimina o comenta para volver a mostrar
+
+  // 🔁 Aplica el filtro
+  const filteredNavMenu = navMenu.filter(item => !excludedMobileMenus.includes(item));
 
   const SideList = () => (
     <div
@@ -28,7 +33,7 @@ function MobileMenu(props) {
     >
       <div className={cx(classes.menu, open && classes.menuOpen)}>
         <List component="nav">
-          {navMenu.map((item, index) => (
+          {filteredNavMenu.map((item, index) => (
             <ListItem
               button
               component="a"
@@ -46,7 +51,7 @@ function MobileMenu(props) {
             button
             component="a"
             href={curLang + "/faq"}
-            style={{ animationDuration: navMenu.length * 0.15 + "s" }}
+            style={{ animationDuration: filteredNavMenu.length * 0.15 + "s" }}
           >
             <ListItemText
               primary={t("hosting-landing.header_faq")}
@@ -57,7 +62,7 @@ function MobileMenu(props) {
             button
             component="a"
             href={curLang + routeLink.hosting.contact}
-            style={{ animationDuration: navMenu.length * 0.15 + "s" }}
+            style={{ animationDuration: filteredNavMenu.length * 0.15 + "s" }}
           >
             <ListItemText
               primary={t("hosting-landing.header_contact")}
@@ -67,7 +72,7 @@ function MobileMenu(props) {
           <Divider className={classes.dividerSidebar} />
           <Grid item xs={2} md={3}>
             <div className={classes.socialWrapper}>
-              <a
+              {/* <a
                 href="https://twitter.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -79,7 +84,7 @@ function MobileMenu(props) {
                 >
                   <i className="ion-logo-twitter" />
                 </IconButton>
-              </a>
+              </a> */}
               <a
                 href="https://www.facebook.com/share/15gF7rWhUi/?mibextid=wwXIfr"
                 target="_blank"
@@ -94,7 +99,7 @@ function MobileMenu(props) {
                 </IconButton>
               </a>
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/integralpoolservices/?igsh=eGt1YzB3emg5bDI%3D#"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -106,7 +111,7 @@ function MobileMenu(props) {
                   <i className="ion-logo-instagram" />
                 </IconButton>
               </a>
-              <a
+              {/* <a
                 href="https://linkedin.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -118,7 +123,7 @@ function MobileMenu(props) {
                 >
                   <i className="ion-logo-linkedin" />
                 </IconButton>
-              </a>
+              </a> */}
             </div>
           </Grid>
           <p
@@ -150,6 +155,9 @@ function MobileMenu(props) {
   );
 }
 
-MobileMenu.propTypes = {};
+MobileMenu.propTypes = {
+  toggleDrawer: PropTypes.func,
+  open: PropTypes.bool,
+};
 
 export default MobileMenu;

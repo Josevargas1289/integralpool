@@ -74,26 +74,26 @@ function Footer({ toggleDir }) {
           {/* Columna 3: Redes sociales + idioma */}
           <Grid item xs={12} md={4} className={classes.alignCenter}>
             <div className={classes.socmed}>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                 <IconButton aria-label="Twitter" className={classes.margin} size="small">
                   <i className="ion-logo-twitter" />
                 </IconButton>
-              </a>
+              </a> */}
               <a href="https://www.facebook.com/share/15gF7rWhUi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                 <IconButton aria-label="Facebook" className={classes.margin} size="small">
                   <i className="ion-logo-facebook" />
                 </IconButton>
               </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/integralpoolservices/?igsh=eGt1YzB3emg5bDI%3D#" target="_blank" rel="noopener noreferrer">
                 <IconButton aria-label="Instagram" className={classes.margin} size="small">
                   <i className="ion-logo-instagram" />
                 </IconButton>
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
                 <IconButton aria-label="LinkedIn" className={classes.margin} size="small">
                   <i className="ion-logo-linkedin" />
                 </IconButton>
-              </a>
+              </a> */}
             </div>
 
             <div className={classes.langWrapper}>

@@ -84,9 +84,9 @@ function Landing(props) {
               <Benefit />
             </section>
             <ParticlesCanvas />
-            <section id="pricing" className={classes.spaceTopShort}>
+            {/* <section id="pricing" className={classes.spaceTopShort}>
               <PricingPlan />
-            </section>
+            </section> */}
             <section id="galeries" className={classes.spaceTopShort}>
               <MediaGallery />
             </section>

@@ -2,8 +2,9 @@ const menu = [
   'promotion',
   'feature',
   'benefit',
-  'pricing',
   'galeries',
+  'pricing',
+  
 ];
 
 export default menu;
