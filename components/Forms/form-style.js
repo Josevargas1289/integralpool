@@ -208,7 +208,7 @@ const contactStyles = makeStyles({ uniqId: 'contact' })((theme, _params, classes
     },
     '& p, span': {
       display: 'block',
-      textTransform: 'lowercase',
+      textTransform: 'none',
       fontSize: 24,
       paddingBottom: 4,
       color: theme.palette.text.secondary,

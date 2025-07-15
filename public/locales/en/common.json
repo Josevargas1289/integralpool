@@ -90,6 +90,14 @@
     "footer_subscribe": "Get our newsletter, join the community:",
     "footer_mail": "Your email",
     "footer_link": "Quick links",
+    "footer_links": {
+      "about": "About Us",
+      "services": "Services",
+      "partners": "Partners",
+      "process": "Processes",
+      "contact": "Contact",
+      "faq": "FAQ"
+    },
     "footer_news": "News",
     "subscribe": "Subscribe",
     "allies_headtitle": "Our Partners",
@@ -98,6 +106,7 @@
     "gallery_headtitle": "Photo Gallery",
     "gallery_title": "Explore Our Best Moments",
     "gallery_description": "Discover our work and services through images and videos that reflect our quality and commitment."
+    
   },
   "carousel": {
     "title1": "Functional Aesthetics",

@@ -82,7 +82,7 @@ const footerStyles = makeStyles({ uniqId: 'footer' })((theme, _params, classes) 
     '& h6': {
       fontWeight: theme.typography.fontWeightMedium,
       fontSize: 28,
-      textTransform: 'lowercase',
+      textTransform: 'none',
       color: theme.palette.common.white,
     }
   },
@@ -196,6 +196,28 @@ const footerStyles = makeStyles({ uniqId: 'footer' })((theme, _params, classes) 
       textAlign: 'left'
     }
   },
+  alignCenter: {
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+},
+
+langWrapper: {
+  marginTop: theme.spacing(2),
+  [`& > div`]: {
+    margin: '0 auto'
+  }
+},
+
+copyWrapper: {
+  marginTop: theme.spacing(6),
+  textAlign: 'center',
+  '& p': {
+    color: theme.palette.common.white,
+  }
+}
+
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.

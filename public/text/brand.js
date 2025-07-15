@@ -4,7 +4,7 @@ module.exports = {
     name_movil: 'Integral Pool',
     desc: 'Integral Pool Repairs',
     prefix: 'IPR',
-    footerText: '2025',
+    footerText: 'Integral Pool Repairs',
     logoText: 'Integral Pool Repairs',
     projectName: 'Integral Pool Repairs',
     url: 'integralpool.com',

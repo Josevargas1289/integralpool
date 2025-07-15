@@ -89,6 +89,14 @@
     "footer_subscribe": "Recibe nuestro boletín, únete a la comunidad:",
     "footer_mail": "Tu correo electrónico",
     "footer_link": "Enlaces rápidos",
+    "footer_links": {
+      "about": "Quiénes Somos",
+      "services": "Servicios",
+      "partners": "Aliados",
+      "process": "Procesos",
+      "contact": "Contácto",
+      "faq": "Preguntas"
+    },
     "footer_news": "Noticias",
     "subscribe": "Suscribirse",
     "allies_headtitle": "Nuestros Aliados",

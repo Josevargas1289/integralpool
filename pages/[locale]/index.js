@@ -20,7 +20,7 @@ import PricingPlan from 'components/PricingPlan';
 import ParticlesCanvas from 'components/ParticlesCanvas';
 import Testimonials from 'components/Testimonials';
 import PageNav from 'components/PageNav';
-import Notification from 'components/Notification';
+// import Notification from 'components/Notification';
 import MoreFeature from 'components/Feature/MoreFeature';
 import WhatsaapButton from '../../components/WhatsaapButton/whatsappButton';
 import MediaGallery from '../../components/mediaGallery/MediaGallery'
@@ -90,7 +90,7 @@ function Landing(props) {
             <section id="galeries" className={classes.spaceTopShort}>
               <MediaGallery />
             </section>
-            {!isTablet && <Notification />}
+           
           </main>
           {!isTablet && <PageNav />}
         </Fragment>
