@@ -58,9 +58,9 @@ module.exports = {
   cloud: {
     palette: {
       primary: {
-        light: '#B3E5FC',
-        main: '#03A9F4',
-        dark: '#01579B'
+        light: '#2DCED8',
+        main: '#2DCED8',
+        dark: '#142EF8'
       },
       secondary: {
         light: '#FFE0B2',

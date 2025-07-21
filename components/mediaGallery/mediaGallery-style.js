@@ -16,13 +16,23 @@ const useStyles = makeStyles({ uniqId: 'mediaGallery' })((theme) => ({
     textAlign: 'center',
     marginBottom: theme.spacing(6),
     '& h4': {
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: '2.4rem',
       color: theme.palette.text.primary,
+      fontWeight: theme.typography.fontWeightBold,
+      textTransform: 'capitalize',
+      fontSize: 36,
+      lineHeight: '56px',
+      [theme.breakpoints.down('lg')]: {
+        fontSize: 32,
+        lineHeight: '48px'
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 24,
+        lineHeight: '36px',
+      }
     },
     '& p': {
       marginTop: theme.spacing(2),
-      color: theme.palette.grey[700],
+      color: theme.palette.primary[700],
       fontSize: '1rem',
       maxWidth: 600,
       marginLeft: 'auto',

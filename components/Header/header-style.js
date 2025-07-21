@@ -251,7 +251,7 @@ brandText: {
   alignItems: 'center',
   fontWeight: 900,
   fontSize: '1.5rem',
-  color: '#03589A',
+  color: '#142EF8',
   padding: '1rem 0',
   textAlign: 'center',
 }
