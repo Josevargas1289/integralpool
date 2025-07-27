@@ -36,6 +36,9 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
     },
+  },
+  text_color:{
+    color: theme.palette.text.primary,
   }
 }));
 

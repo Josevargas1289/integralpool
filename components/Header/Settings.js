@@ -1,3 +1,19 @@
+function useResponsive(breakpoint = 960) {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < breakpoint;
+    }
+    return false;
+  });
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < breakpoint);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'next-i18next';
@@ -26,7 +42,7 @@ function Settings(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
   const { t, i18n } = useTranslation('common');
-
+  const isMobile = useResponsive(960);
   const currentLocale = i18n.language;
 
   function handleClick(event) {
@@ -52,21 +68,37 @@ function Settings(props) {
 
   return (
     <div className={classes.setting}>
-      <IconButton
-        aria-describedby={id}
-        aria-label="Settings"
-        onClick={handleClick}
-        className={
-          cx(
-            classes.icon,
-            open && classes.active,
-            invert && classes.invert
-          )
-        }
-        size="large"
-      >
-        <SettingsIcon fontSize="inherit" />
-      </IconButton>
+      {isMobile ? (
+        <IconButton
+          aria-describedby={id}
+          aria-label="Settings"
+          onClick={handleClick}
+          className={cx(classes.icon, open && classes.active, invert && classes.invert)}
+          size="large"
+        >
+          <SettingsIcon fontSize="inherit" />
+        </IconButton>
+      ) : (
+        <button
+          aria-describedby={id}
+          aria-label="Idioma"
+          onClick={handleClick}
+          className={cx(classes.icon, invert && classes.invert)}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '1rem',
+            padding: '8px 16px',
+            color: '#00BCD4',
+            fontWeight: 600,
+            transition: 'color 0.2s',
+          }}
+          // El color persiste, no se modifica en hover
+        >
+          {t('language')}
+        </button>
+      )}
       <Popover
         id={id}
         open={open}

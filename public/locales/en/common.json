@@ -40,6 +40,7 @@
   "accept": "Accept",
   "en": "English",
   "es": "Spanish",
+  "language": "Language",
   "notif_msg": "This is an example of a commonly used message for important information to visitors or users. Please click the button beside to close this message.",
   "hosting-landing": {
     "header_login": "Log In",
@@ -55,7 +56,7 @@
     "header_galeries": "Galeries",
     "header_contact": "Contact",
     "header_faq": "FAQs",
-    "banner_title": "Tailor-made residential pools and patios",
+    "banner_title": "Tailor-made pools and patios",
     "banner_subtitle": "Functional, durable, and aesthetic designs. Free personalized consultation on your first visit.",
     "banner_label": "Enter your domain name",
     "banner_button": "Search",
@@ -70,8 +71,8 @@
     "mainfeature_descitem3": "Programming and wireless system automation for greater convenience and efficiency in residential and commercial pools.",
     "learnmore": "Contact us",
     "morefeature_headtitle1": "ABOUT US",
-    "morefeature_title1": "Passion, experience, and building trust.",
-    "morefeature_desc1": "Integral Pool is a leading company in the construction and maintenance of patios and pools. With a solid track record and a strong focus on excellence, we are dedicated to providing comprehensive solutions to create pleasant and enjoyable spaces.",
+    "morefeature_title1": "Fast, on time, and well done.",
+    "morefeature_desc1": "Integral Pool is a company created to lead in the construction and maintenance of patios and swimming pools. With a solid track record and a focus on excellence, we are dedicated to providing comprehensive solutions to create enjoyable spaces.",
     "morefeature_headtitle2": "SMART DEPLOYMENT",
     "morefeature_title2": "Deploy and scale seamlessly",
     "morefeature_desc2": "Deploy in any of our data centers – New York, SF, London, Amsterdam, Bangalore, and more.",
@@ -112,7 +113,6 @@
     "gallery_headtitle": "Photo Gallery",
     "gallery_title": "Explore Our Best Moments",
     "gallery_description": "Discover our work and services through images and videos that reflect our quality and commitment."
-    
   },
   "carousel": {
     "title1": "Functional Aesthetics",

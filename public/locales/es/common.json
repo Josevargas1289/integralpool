@@ -55,7 +55,7 @@
     "header_galeries": "Galerias",
     "header_contact": "Contacto",
     "header_faq": "Preguntas",
-    "banner_title": "Piscinas y patios residenciales a tu medida",
+    "banner_title": "Piscinas y patios a tu medida",
     "banner_subtitle": "Diseños funcionales, duraderos y estéticos. Asesoría personalizada gratuita en tu primera visita.",
     "banner_label": "Ingresa tu nombre de dominio",
     "banner_button": "Buscar",
@@ -69,8 +69,8 @@
     "mainfeature_titleitem3": "Tecnología y Automatización",
     "mainfeature_descitem3": "Programación y automatización de sistemas inalámbricos para mayor comodidad y eficiencia en piscinas residenciales y comerciales.",
     "morefeature_headtitle1": "QUIENES SOMOS",
-    "morefeature_title1": "Pasión, experiencia y construcción de confianza.",
-    "morefeature_desc1": "Integral Pool es una empresa líder en el sector de la construcción y mantenimiento de patios y piscinas. Con una trayectoria sólida y un enfoque centrado en la excelencia, nos dedicamos a proporcionar soluciones integrales para crear espacios agradables",
+    "morefeature_title1": "Rápido, a tiempo y bien hecho.",
+    "morefeature_desc1": "Integral Pool es una empresa creada para el liderazgo en el sector de la construcción y mantenimiento de patios y piscinas. Con una trayectoria sólida y un enfoque centrado en la excelencia, nos dedicamos a proporcionar soluciones integrales para crear espacios agradables.",
     "morefeature_headtitle2": "DESPLIEGUE INTELIGENTE",
     "morefeature_title2": "Despliega y escala sin problemas",
     "morefeature_desc2": "Despliega en cualquiera de nuestros centros de datos – Nueva York, SF, Londres, Ámsterdam, Bangalore y más.",
@@ -175,6 +175,6 @@
 "mediaGallery": {
   "title": "Galería Multimedia",
   "description": "Explora nuestras imágenes y videos destacados."
-}
-
+},
+"language": "Lenguaje"
 }

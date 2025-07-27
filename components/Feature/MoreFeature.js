@@ -61,9 +61,11 @@ function MoreFeature() {
                       >
                         {t('hosting-landing.morefeature_desc1')}
                       </Typography>
-
-                      {/* ✅ Solo se muestra el botón para abrir el modal */}
-                      <ModalMisionVision />
+                      <Grid container spacing={2} direction={isMobile ? 'column' : 'row'} justifyContent={isMobile ? 'center' : 'flex-start'} alignItems="center">
+                        <Grid item>
+                          <ModalMisionVision />
+                        </Grid>
+                      </Grid>
                     </div>
                   </div>
                 </ScrollAnimation>

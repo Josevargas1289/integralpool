@@ -131,7 +131,10 @@ function Header(props) {
               {!isTablet && (
                 <Fragment>
                   <PhoneIcon />
-                  +1 786 770 1666
+                 Es: +1 786 770 1666 
+                  <Divider className={classes.divider} />
+                  <PhoneIcon />
+                 In: +57 302 2092633
                   <Divider className={classes.divider} />
                 </Fragment>
               )}
@@ -189,8 +192,12 @@ function Header(props) {
                         {t("hosting-landing.header_contact")}
                       </Button>
                       <li>
-                        <Button component={Link} href={routeLink.hosting.faq}>
-                          <ContactSupportIcon sx={{ color: 'text.secondary' }} />
+                        <Button
+                          component={Link}
+                          href={routeLink.hosting.faq}
+                          sx={{ color: "text.secondary" }}
+                        >
+                         {t('hosting-landing.header_faq')}
                         </Button>
                       </li>
                     </li>

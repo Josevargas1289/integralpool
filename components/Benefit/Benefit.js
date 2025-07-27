@@ -13,6 +13,8 @@ import useStyles from './benefit-style';
 import jandyLogo from 'public/images/ally/imgjLogoJandy.png';
 import pentairLogo from 'public/images/ally/imgLogoPentair.png';
 import haywardLogo from 'public/images/ally/imgLogoHayward.svg';
+import specPoon from 'public/images/ally/speckPoon.svg';
+
 
 function Allies() {
   const { classes } = useStyles();
@@ -36,6 +38,11 @@ function Allies() {
       url: 'https://www.hayward-pool.com/',
       image: haywardLogo
     },
+     {
+      name: 'speck',
+      url: 'https://usa.speck-pumps.com/',
+      image: specPoon
+    },
     {
       name: 'Jandy',
       url: 'https://www.jandy.com/',
@@ -52,6 +59,11 @@ function Allies() {
       image: haywardLogo
     },
      {
+      name: 'speck',
+      url: 'https://usa.speck-pumps.com/',
+      image: specPoon
+    },
+     {
       name: 'Jandy',
       url: 'https://www.jandy.com/',
       image: jandyLogo
@@ -65,6 +77,11 @@ function Allies() {
       name: 'Hayward',
       url: 'https://www.hayward-pool.com/',
       image: haywardLogo
+    },
+     {
+      name: 'speck',
+      url: 'https://usa.speck-pumps.com/',
+      image: specPoon
     },
   ];
 
