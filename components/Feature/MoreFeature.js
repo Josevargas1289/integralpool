@@ -10,7 +10,8 @@ import { useTranslation } from 'next-i18next';
 import { useTextAlign, useText } from 'theme/common';
 import Title from '../Title';
 import Carousel from '../Carrusell/Carrusell';
-import ModalMisionVision from '../modalMisionVision/ModalMisionVision'; // ✅ Modal importado
+import ModalMisionVision from '../modalMisionVision/ModalMisionVision';
+import ModalFilosofia from '../modalFilosofia/Modalfilosofia';
 
 import useStyles from './feature-style';
 
@@ -64,6 +65,9 @@ function MoreFeature() {
                       <Grid container spacing={2} direction={isMobile ? 'column' : 'row'} justifyContent={isMobile ? 'center' : 'flex-start'} alignItems="center">
                         <Grid item>
                           <ModalMisionVision />
+                        </Grid>
+                        <Grid item>
+                          <ModalFilosofia />
                         </Grid>
                       </Grid>
                     </div>

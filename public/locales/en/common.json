@@ -140,7 +140,10 @@
     "mision_titulo": "Mission",
     "mision_texto": "To provide INTEGRAL solutions in the design, construction, and maintenance of pools, ensuring the well-being and INTEGRITY of all individuals involved. We are committed to meeting the highest technical standards, maximizing the value, safety, and enjoyment of our clients’ investments. We build long-lasting relationships based on Honesty, Responsibility, Trust, and Quality, ensuring complete satisfaction.",
     "vision_titulo": "Vision",
-    "vision_texto": "To be the leading company in pool construction and water system management, recognized for our human INTEGRITY, technical excellence, and truly INTEGRAL service. We aspire to go beyond, positively impacting the lives of our team, our clients, and the community, leaving a lasting and indelible mark of responsibility, quality, trust, and well-being."
+    "vision_texto": "To be the leading company in pool construction and water system management, recognized for our human INTEGRITY, technical excellence, and truly INTEGRAL service. We aspire to go beyond, positively impacting the lives of our team, our clients, and the community, leaving a lasting and indelible mark of responsibility, quality, trust, and well-being.",
+    "filosofia_titulo": "Why do customers leave?",
+    "filosofia_descripcion": "1% because they die\n3% because they move away\n5% because they make friends with others\n9% because of lower prices from COMPETITORS\n14% because of poor quality\n68% due to indifference and poor service from sales and service staff.\n(Managers, Supervisors, Salespeople, Dispatchers, Secretaries, Telephone Operators and Delivery Personnel)",
+    "filosofia": "Philosophy"
   },
  "faq": {
   "q1": "How long does it take to build a pool?",

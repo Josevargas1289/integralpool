@@ -138,7 +138,10 @@
   "mision_titulo": "Misión",
   "mision_texto": "Brindar soluciones ITEGRALES en diseño, construcción y mantenimiento de piscinas, garantizando el bienestar y la INTEGRIDAD de todas las personas involucradas. Nos comprometemos a cumplir con los más altos estándares técnicos, maximizando el valor, la seguridad y el disfrute de la inversión de nuestros clientes. Construimos relaciones duraderas basadas en la Honestidad, Responsabilidad, confianza, la calidad Garantizando la plena satisfacción.",
   "vision_titulo": "Visión",
-  "vision_texto": "Ser la empresa líder en construcción de piscinas y gestión de sistemas de agua, reconocida por nuestra INTEGRIDAD humana, excelencia técnica y un servicio verdaderamente INTEGRO. Aspiramos a trascender, impactando positivamente en la vida de nuestro equipo, nuestros clientes y la comunidad, dejando una huella duradera e imborrable de responsabilidad, calidad, confianza y bienestar."
+  "vision_texto": "Ser la empresa líder en construcción de piscinas y gestión de sistemas de agua, reconocida por nuestra INTEGRIDAD humana, excelencia técnica y un servicio verdaderamente INTEGRO. Aspiramos a trascender, impactando positivamente en la vida de nuestro equipo, nuestros clientes y la comunidad, dejando una huella duradera e imborrable de responsabilidad, calidad, confianza y bienestar.",
+  "filosofia_titulo": "¿Por qué se pierden los clientes?",
+  "filosofia_descripcion": "El 1% porque se mueren\nEl 3% porque se mudan a otra parte\nEl 5% porque se hacen amigos de otros\nEl 9% por los precios más bajos de la COMPETENCIA\nEl 14% por la mala calidad\nEl 68% debido a la indiferencia y mala atención del personal de ventas, y servicio.\n(Gerentes, Supervisores, Vendedores, Despachadores, Secretarias, Telefonistas y Repartidores)",
+  "filosofia": "Filosofía"
 },
 "faq": {
   "q1": "¿Cuánto tiempo toma construir una piscina?",
