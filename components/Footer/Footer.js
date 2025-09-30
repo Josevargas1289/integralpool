@@ -18,7 +18,7 @@ function Footer({ toggleDir }) {
     { key: 'about', href: '#promotion' },
     { key: 'services', href: '#feature' },
     { key: 'partners', href: '#benefit' },
-    { key: 'process', href: '#pricing' },
+    // { key: 'process', href: '#pricing' },
     { key: 'contact', href: '/contact/' },
     { key: 'faq', href: '/faq/' },
   ];
