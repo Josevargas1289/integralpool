@@ -1,60 +1,62 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Container from '@mui/material/Container';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CollectionsIcon from '@mui/icons-material/Collections';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useTranslation } from 'next-i18next';
-
-import { useText } from 'theme/common';
 import useStyles from './banner-style';
-import fondoBanner from '../../public/images/fondoBanner.svg';
 
 function Banner() {
-  const { classes, cx } = useStyles();
-  const { classes: text } = useText();
-  const elem = useRef(null);
-
-  const [vantaEffect, setVantaEffect] = useState(null);
-  const myRef = useRef(null);
-
-  // Media Query
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-
-  // Translation Function
-  const { t } = useTranslation('common');
-
-  const [hide, setHide] = useState(false);
+  const { classes } = useStyles();
+  const { t, i18n } = useTranslation('common');
+  const locale = i18n.language === 'en' ? 'en' : 'es';
 
   return (
-    <div className={classes.root} ref={elem}>
-      <div className={classes.decoWrap}>
-        <div className={cx(classes.decoInner, hide && classes.hide)}>
-          <div className={classes.illustration} ref={myRef} />
-        </div>
-      </div>
-      <div className={classes.decoWrap}>
-        <img
-          src={fondoBanner}
-          alt="imagen banner"
-          className={classes.imageResponsive}
-        />
-      </div>
-      <Container maxWidth="md">
-        <div className={classes.bannerWrap}>
-          <div className={classes.text}>
-            <Typography variant="h4" className={text.title2}>
-              {t("hosting-landing.banner_title")}
-            </Typography>
-            <Typography component="p" className={text.subtitle2}>
-              {t("hosting-landing.banner_subtitle")}
-            </Typography>
+    <section className={classes.root} aria-labelledby="hero-title">
+      <img src="/images/fondoBanner.webp" alt="" aria-hidden="true" fetchpriority="high" className={classes.background} />
+      <div className={classes.overlay} />
+
+
+      <Container maxWidth="lg" className={classes.container}>
+        <div className={classes.copy}>
+          <Typography component="span" variant="overline" className={classes.eyebrow}>
+            {t('hosting-landing.hero_eyebrow')}
+          </Typography>
+          <Typography component="h1" variant="h1" id="hero-title" className={classes.title}>
+            {t('hosting-landing.banner_title')}
+          </Typography>
+          <Typography component="p" className={classes.subtitle}>
+            {t('hosting-landing.banner_subtitle')}
+          </Typography>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} className={classes.actions}>
+            <Button variant="contained" color="secondary" size="large" href={`/${locale}/contact/`} className={classes.primaryAction}>
+              {t('hosting-landing.banner_primary_cta')}
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<CollectionsIcon />}
+              href="#galeries"
+              className={classes.secondaryAction}
+            >
+              {t('hosting-landing.banner_view_projects')}
+            </Button>
+          </Stack>
+          <div className={classes.proofPoints}>
+            {['banner_proof_1', 'banner_proof_2', 'banner_proof_3', 'banner_proof_4'].map(item => (
+              <span key={item}><CheckCircleOutlineIcon aria-hidden="true" />{t(`hosting-landing.${item}`)}</span>
+            ))}
           </div>
         </div>
       </Container>
-    </div>
+      <AnchorLink href="#promotion" className={classes.scrollCue} aria-label={t('hosting-landing.hero_scroll')}>
+        <span>{t('hosting-landing.hero_scroll')}</span><ArrowDownwardIcon />
+      </AnchorLink>
+    </section>
   );
 }
 

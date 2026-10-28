@@ -34,6 +34,7 @@ function Carousel() {
       <Button
         className={cx(classes.navButtons, classes.prevButton)}
         onClick={handlePrev}
+        aria-label={t('carousel.previous')}
       >
         <ArrowBack />
       </Button>
@@ -41,7 +42,7 @@ function Carousel() {
       <Box className={classes.imageContainer}>
         <img
           src={images[index].src}
-          alt={`Carousel ${index + 1}`}
+          alt={`${t(images[index].titleKey)} — ${t(images[index].subtitleKey)}`}
           className={classes.image}
         />
         <Box className={classes.overlay}>
@@ -57,6 +58,7 @@ function Carousel() {
       <Button
         className={cx(classes.navButtons, classes.nextButton)}
         onClick={handleNext}
+        aria-label={t('carousel.next')}
       >
         <ArrowForward />
       </Button>

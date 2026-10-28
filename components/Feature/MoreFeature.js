@@ -2,82 +2,65 @@ import React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import ScrollAnimation from 'react-scroll-animation-wrapper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useTranslation } from 'next-i18next';
-import { useTextAlign, useText } from 'theme/common';
 import Title from '../Title';
 import Carousel from '../Carrusell/Carrusell';
 import ModalMisionVision from '../modalMisionVision/ModalMisionVision';
-import ModalFilosofia from '../modalFilosofia/Modalfilosofia';
-
 import useStyles from './feature-style';
 
 function MoreFeature() {
   const theme = useTheme();
-  const { classes: text } = useText();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   const { t } = useTranslation('common');
-
-  const { classes, cx } = useStyles();
-  const { classes: align } = useTextAlign();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.moreFeature}>
-      <div className={classes.chartDeco} />
-      <Container fixed={isDesktop}>
-        <div className={classes.item}>
-          <Grid
-            direction={isMobile ? 'column-reverse' : 'row'}
-            container
-            spacing={6}
-          >
-            <Grid item md={6} xs={12}>
-              <figure className={classes.illustration}>
-                <Carousel />
-              </figure>
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <div className={classes.text}>
-                <ScrollAnimation
-                  animateOnce
-                  animateIn="fadeInLeftShort"
-                  delay={400}
-                  duration={0.3}
-                >
-                  <div>
-                    <Title
-                      caption={t('hosting-landing.morefeature_headtitle1')}
-                      text={t('hosting-landing.morefeature_title1')}
-                      align={isMobile ? 'center' : 'left'}
-                    />
-                    <div className={isMobile ? align.textCenter : ''}>
-                      <Typography
-                        className={text.subtitle2}
-                        align={isMobile ? 'center' : 'left'}
-                      >
-                        {t('hosting-landing.morefeature_desc1')}
-                      </Typography>
-                      <Grid container spacing={2} direction={isMobile ? 'column' : 'row'} justifyContent={isMobile ? 'center' : 'flex-start'} alignItems="center">
-                        <Grid item>
-                          <ModalMisionVision />
-                        </Grid>
-                        <Grid item>
-                          <ModalFilosofia />
-                        </Grid>
-                      </Grid>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </div>
-            </Grid>
+      <Container maxWidth="lg">
+        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
+          <Grid item md={7} xs={12}>
+            <figure className={classes.illustration}>
+              <Carousel />
+              <figcaption className={classes.imageCaption}>
+                <span>Integral Pool</span>
+                {t('hosting-landing.about_image_caption')}
+              </figcaption>
+            </figure>
           </Grid>
-        </div>
-        <Divider className={classes.divider} />
+          <Grid item md={5} xs={12}>
+            <div className={classes.aboutCopy}>
+              <Title
+                caption={t('hosting-landing.morefeature_headtitle1')}
+                text={t('hosting-landing.morefeature_title1')}
+                align={isMobile ? 'center' : 'left'}
+              />
+              <Typography className={classes.aboutDescription}>
+                {t('hosting-landing.morefeature_desc1')}
+              </Typography>
+              <div className={classes.principles}>
+                {['about_principle_1', 'about_principle_2', 'about_principle_3'].map(item => (
+                  <span key={item}>{t(`hosting-landing.${item}`)}</span>
+                ))}
+              </div>
+              <div className={classes.aboutActions}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href="#feature"
+                  endIcon={<ArrowForwardIcon />}
+                  className={classes.roundedButton}
+                >
+                  {t('hosting-landing.about_services_cta')}
+                </Button>
+                <ModalMisionVision />
+              </div>
+            </div>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );

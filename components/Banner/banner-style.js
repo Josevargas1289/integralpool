@@ -3,196 +3,71 @@ import { alpha } from '@mui/material/styles';
 
 const bannerStyles = makeStyles({ uniqId: 'banner' })(theme => ({
   root: {
-    background: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
+    position: 'relative', minHeight: 800, display: 'flex', alignItems: 'center',
+    overflow: 'hidden', color: theme.palette.common.white, background: '#082748',
+    [theme.breakpoints.down('md')]: { minHeight: 750, paddingTop: 0 },
   },
-  decoWrap: {
-    position: 'absolute',
-    width: '100%',
-    height: 500,
-    clip: 'rect(0, auto, auto, 0)',
-    overflow: 'hidden',
-    background: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
+  background: {
+    position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
+    objectPosition: 'center 58%', transform: 'scale(1.01)', animation: '$heroReveal 1.1s ease-out both',
+    '@media (prefers-reduced-motion: reduce)': { animation: 'none', transform: 'none' },
   },
-  imageResponsive: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    opacity: 0.6, // ⭐️ para que el texto se vea mejor
-    transition: 'transform 0.5s ease, filter 0.5s ease',
-    filter: 'brightness(0.9)',
-    animationName: '$fadeIn',
-    animationDuration: '1.2s',
-    animationTimingFunction: 'ease-in-out',
-    animationFillMode: 'forwards',
-    '&:hover': {
-      transform: 'scale(1.03)',
-      filter: 'brightness(1.05)'
-    }
+  overlay: {
+    position: 'absolute', inset: 0,
+    background: 'linear-gradient(90deg, rgba(5,31,61,0.90) 0%, rgba(10,49,83,0.72) 48%, rgba(12,55,84,0.18) 82%)',
+    '&:after': { content: '""', position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.18), transparent 40%, rgba(3,24,45,0.46))' },
+    [theme.breakpoints.down('md')]: { background: 'linear-gradient(90deg, rgba(5,31,61,0.90), rgba(8,45,78,0.66))' },
   },
-  '@global': {
-    '@keyframes fadeIn': {
-      from: { opacity: 0 },
-      to: { opacity: 0.4 } // Coincide con el valor final de opacity
-    }
+  container: {
+    position: 'relative', zIndex: 2, paddingTop: theme.spacing(15), paddingBottom: theme.spacing(9),
+    [theme.breakpoints.down('md')]: { paddingTop: theme.spacing(11) },
+    [theme.breakpoints.down('sm')]: { paddingTop: theme.spacing(11.5) },
   },
-
-  parallaxWrap: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    left: 0,
-    top: 0,
-    zIndex: 0,
-    [theme.breakpoints.down('lg')]: {
-      display: 'none'
-    },
+  copy: { maxWidth: 860, animation: '$copyReveal 700ms ease-out 100ms both', '@media (prefers-reduced-motion: reduce)': { animation: 'none' } },
+  eyebrow: {
+    display: 'inline-flex', alignItems: 'center', gap: theme.spacing(1.2), marginBottom: theme.spacing(2.5),
+    color: theme.palette.primary.light, fontSize: 12, fontWeight: 700, letterSpacing: '0.16em',
+    '&:before': { content: '""', width: 42, height: 3, borderRadius: 2, background: theme.palette.secondary.main },
   },
-  innerParallax: {
-    height: 800,
-    width: '100%',
-    position: 'absolute',
-    display: 'block',
-    '& [class="figure"]': {
-      height: 600,
-      margin: 0,
-      width: '100%',
-      display: 'block',
-      position: 'absolute',
-      '& svg': {
-        position: 'absolute'
-      },
-      '& > div': {
-        display: 'block',
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-      }
-    },
+  title: {
+    maxWidth: 760, marginBottom: theme.spacing(3), color: theme.palette.common.white,
+    fontSize: 'clamp(2.8rem, 5.2vw, 4.8rem)', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.045em', textWrap: 'balance',
+    [theme.breakpoints.down('sm')]: { fontSize: 'clamp(2.45rem, 11.5vw, 3.55rem)', lineHeight: 1.03 },
   },
-  illustration: {
-    position: 'fixed',
-    width: '100%',
-    height: 650,
-    bottom: -70,
-    left: 0,
-    opacity: theme.palette.mode === 'dark' ? 0.5 : 1,
-    '& img': {
-      width: '100%'
-    }
+  subtitle: { maxWidth: 650, margin: 0, color: 'rgba(255,255,255,0.84)', fontSize: 'clamp(1rem, 1.4vw, 1.18rem)', lineHeight: 1.75 },
+  actions: { marginTop: theme.spacing(4) },
+  primaryAction: {
+    minHeight: 54, padding: theme.spacing(1.45, 3.4), borderRadius: 10, fontWeight: 700,
+    boxShadow: `0 14px 32px ${alpha(theme.palette.secondary.main, 0.3)}`,
   },
-  bannerWrap: {
-    position: 'relative',
-    padding: theme.spacing(25, 0, 10),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(35, 0, 9),
-    }
+  secondaryAction: {
+    minHeight: 54, padding: theme.spacing(1.45, 2.7), color: theme.palette.common.white,
+    borderColor: 'rgba(255,255,255,0.62)', borderRadius: 10, fontWeight: 600,
+    '&:hover': { color: theme.palette.common.white, borderColor: theme.palette.primary.main, background: alpha(theme.palette.primary.main, 0.14) },
   },
-  text: {
-  textAlign: 'center',
-  opacity: 0,
-  animation: 'slideDownSlow 3.8s ease-out 0.3s forwards', // duración: 1.8s, delay: 0.3s
-  '& h4': {
-    fontWeight: theme.typography.fontWeightBold,
-    color: theme.palette.mode === 'dark'
-      ? theme.palette.primary.light
-      : theme.palette.primary.dark,
-    marginBottom: theme.spacing(3),
-    fontSize: '2rem',
-  },
-  '& p': {
-    fontWeight: theme.typography.fontWeightMedium,
-    fontSize: '1.2rem',
-  },
-  '@keyframes slideDownSlow': {
-    '0%': {
-      opacity: 0,
-      transform: 'translateY(-40px)',
-    },
-    '100%': {
-      opacity: 1,
-      transform: 'translateY(0)',
-    },
-  }
-},
-  searchDomain: {
-    position: 'relative',
-    marginTop: theme.spacing(3),
-    zIndex: 10,
-    [theme.breakpoints.up('md')]: {
-      margin: theme.spacing(6, 10, 0),
+  proofPoints: {
+    display: 'grid', gridTemplateColumns: 'repeat(4, max-content)', alignItems: 'center',
+    gap: theme.spacing(2), marginTop: theme.spacing(4),
+    color: 'rgba(255,255,255,0.82)', fontSize: 11, fontWeight: 600,
+    '& span': { display: 'inline-flex', alignItems: 'center', gap: theme.spacing(0.65), whiteSpace: 'nowrap' },
+    '& svg': { flexShrink: 0, color: theme.palette.primary.main, fontSize: 17 },
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: 'repeat(2, minmax(0, max-content))',
+      gap: theme.spacing(1.5, 3),
     },
     [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(4),
+      gridTemplateColumns: '1fr',
+      gap: theme.spacing(1.25),
+      '& span': { whiteSpace: 'normal' },
     },
-    '& label': {
-      textTransform: 'capitalize'
-    },
   },
-  search: {
-    fontSize: 18,
-    width: '100%',
-    '& input': {
-      borderRadius: 10,
-      padding: theme.spacing(4, 7, 3, 1),
-      [theme.breakpoints.up('md')]: {
-        padding: theme.spacing(4, 30, 3, 3)
-      },
-      '&:focus': {
-        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.4rem`
-      }
-    },
-    '& label': {
-      left: theme.spacing(3),
-      top: theme.spacing(),
-      fontWeight: theme.typography.fontWeightBold
-    },
-    '& label + div': {
-      marginTop: 0,
-      '&:after, &:before': {
-        display: 'none'
-      }
-    }
+  scrollCue: {
+    position: 'absolute', zIndex: 2, left: '50%', bottom: 22, display: 'flex', alignItems: 'center', gap: theme.spacing(1),
+    color: 'rgba(255,255,255,0.72)', fontSize: 10, fontWeight: 600, letterSpacing: '0.14em', textDecoration: 'none', textTransform: 'uppercase', transform: 'translateX(-50%)',
+    '& svg': { fontSize: 16 }, [theme.breakpoints.down('sm')]: { display: 'none' },
   },
-  action: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(2)
-  },
-  selectDomain: {
-    margin: theme.spacing(0, 2),
-    borderLeft: `1px solid ${theme.palette.divider}`,
-    '&:before, &:after': {
-      display: 'none'
-    },
-    '& > div': {
-      padding: theme.spacing(1, 3),
-    }
-  },
-  button: {
-    [theme.breakpoints.down('md')]: {
-      padding: 0,
-      minWidth: 0,
-      width: 'auto',
-      background: 'none',
-      boxShadow: 'none',
-      color: theme.palette.primary.main
-    }
-  },
-  icon: {},
-  decoInner: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
-  },
-  hide: {
-    visibility: 'hidden'
-  }
+  '@keyframes heroReveal': { from: { opacity: 0, transform: 'scale(1.045)' }, to: { opacity: 1, transform: 'scale(1.01)' } },
+  '@keyframes copyReveal': { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
 }));
 
 export default bannerStyles;

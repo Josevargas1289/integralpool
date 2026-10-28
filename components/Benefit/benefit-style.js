@@ -1,78 +1,29 @@
 import { makeStyles } from 'tss-react/mui';
-import img from 'public/images/imgAPI';
+import { alpha } from '@mui/material/styles';
 
 const benefitStyles = makeStyles({ uniqId: 'benefit' })(theme => ({
   root: {
-    position: 'relative',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.primary.dark,
-  },
-  wrapper: {
-    position: 'relative',
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(10),
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: theme.spacing(8),
-      paddingRight: theme.spacing(8),
-    }
+    position: 'relative', padding: theme.spacing(13, 0), overflow: 'hidden', background: theme.palette.background.default,
+    borderTop: `1px solid ${theme.palette.divider}`, borderBottom: `1px solid ${theme.palette.divider}`,
+    [theme.breakpoints.down('md')]: { padding: theme.spacing(9, 0) },
   },
   desc: {
-    padding: theme.spacing(0, 0, 6, 3),
-    color: theme.palette.common.white,
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(0, 3, 6, 3),
-      '& button': {
-        width: '100%',
-      }
-    }
+    position: 'relative', zIndex: 1,
+    '& h2': { fontSize: 'clamp(2.25rem, 4.2vw, 3.8rem)', lineHeight: 1.06, letterSpacing: '-0.035em' },
+    '& p': { margin: theme.spacing(3, 0, 4), color: theme.palette.text.secondary, fontSize: 16, lineHeight: 1.8 },
+    '& a': { minHeight: 48, padding: theme.spacing(1.2, 2.7), borderRadius: 10, fontWeight: 700 },
   },
-  list: {
-    listStyle: 'disc',
-    paddingLeft: theme.spacing(2),
-    marginBottom: theme.spacing(4),
-    color: theme.palette.common.white,
-    '& li': {
-      marginBottom: theme.spacing(1),
-      lineHeight: 1.8,
-    }
-  },
-  carouselWrapper: {
-    marginTop: theme.spacing(2),
-    padding: theme.spacing(2),
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: theme.spacing(2),
-    boxShadow: theme.shadows[3],
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1),
-    },
-    '& .slick-slide': {
-      textAlign: 'center',
-    },
-    '& .slick-track': {
-      display: 'flex',
-      alignItems: 'center',
-    }
-  },
+  logoGrid: { position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: theme.spacing(2), [theme.breakpoints.down('sm')]: { gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: theme.spacing(1) } },
   logoItem: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing(2),
+    minHeight: 155, display: 'grid', placeItems: 'center', padding: theme.spacing(3),
+    border: `1px solid ${theme.palette.divider}`, borderRadius: 14, background: theme.palette.mode === 'dark' ? '#F7FAFC' : theme.palette.background.paper,
+    transition: 'transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease',
+    '&:hover': { transform: 'translateY(-4px)', borderColor: alpha(theme.palette.primary.main, 0.55), boxShadow: `0 16px 36px ${alpha(theme.palette.primary.main, 0.11)}` },
+    '&:hover img': { filter: 'grayscale(0%)', opacity: 1, transform: 'scale(1.035)' },
+    [theme.breakpoints.down('sm')]: { minHeight: 115, padding: theme.spacing(2) },
   },
-  logoImage: {
-    maxHeight: 80,
-    width: 'auto',
-    maxWidth: '100%',
-    transition: 'transform 0.3s ease',
-    filter: 'grayscale(100%)',
-    opacity: 0.7,
-    '&:hover': {
-      transform: 'scale(1.1)',
-      filter: 'grayscale(0%)',
-      opacity: 1,
-      cursor: 'pointer'
-    }
-  }
+  logoImage: { maxWidth: '82%', maxHeight: 64, width: 'auto', filter: 'grayscale(100%)', opacity: 0.68, transition: 'filter 220ms ease, opacity 220ms ease, transform 220ms ease' },
+  wrapper: {}, carouselWrapper: {}, list: {},
 }));
 
 export default benefitStyles;

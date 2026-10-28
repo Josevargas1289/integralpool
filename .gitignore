@@ -4,3 +4,4 @@ out/
 .DS_Store
 .env
 *.log
+hostinger/contact-config.php

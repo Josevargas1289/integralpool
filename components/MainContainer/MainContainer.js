@@ -14,7 +14,7 @@ const useStyles = makeStyles({ uniqId: 'main_container' })(theme => ({
     background: theme.palette.background.paper,
   },
   spaceTop: {
-    marginTop: theme.spacing(20)
+    marginTop: 0
   },
 }));
 

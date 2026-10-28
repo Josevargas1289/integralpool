@@ -60,16 +60,18 @@ module.exports = {
       primary: {
         light: '#2DCED8',
         main: '#2DCED8',
-        dark: '#142EF8'
+        dark: '#142EF8',
+        contrastText: '#FFFFFF'
       },
       secondary: {
         light: '#FFE0B2',
         main: '#FF9800',
-        dark: '#E65100'
+        dark: '#E65100',
+        contrastText: '#FFFFFF'
       }
     }
   },
-  joker: {
+joker: {
     palette: {
       primary: {
         light: '#D1C4E9',

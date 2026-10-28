@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import {
-  Button, useMediaQuery, IconButton, FormControlLabel,
+  Button, useMediaQuery, FormControlLabel,
   Paper, Container, Grid, Typography, Dialog, DialogTitle,
   DialogContent, DialogActions
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTranslation } from 'next-i18next';
 import brand from 'public/text/brand';
@@ -13,17 +13,16 @@ import { useText } from 'theme/common';
 import routeLink from 'public/text/link';
 import Link from '../Link';
 import Checkbox from './Checkbox';
-import ParallaxCloud from '../Parallax/Cloud';
 import useStyles from './form-style';
 
 function Contact() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const locale = i18n.language === 'en' ? 'en' : 'es';
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const [values, setValues] = useState({
     from_name: '',
@@ -39,6 +38,7 @@ function Contact() {
 
   const [check, setCheck] = useState(false);
   const [modal, setModal] = useState({ open: false, success: true });
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -52,46 +52,50 @@ function Contact() {
     setModal({ ...modal, open: false });
   };
 
-  const handleSubmit = () => {
-    const templateParams = {
+  const handleSubmit = async () => {
+    if (isSending || !check) return;
+    setIsSending(true);
+    const contactData = {
       from_name: values.from_name,
-      reply_to: values.from_email,
+      from_email: values.from_email,
       phone: values.phone,
       company: values.company,
-      message: values.message
+      message: values.message,
+      consent: check
     };
 
-    emailjs.send(
-      'service_f301enm',
-      'template_6y12aex',
-      templateParams,
-      '7M01QDWgCwoVcON7R'
-    ).then(
-      () => {
-        setModal({ open: true, success: true });
-        setValues({
-          from_name: '',
-          from_email: '',
-          phone: '',
-          company: '',
-          message: ''
-        });
-        setCheck(false);
-      },
-      () => {
-        setModal({ open: true, success: false });
-      }
-    );
+    try {
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contactData)
+      });
+
+      if (!response.ok) throw new Error('Contact request failed');
+
+      setModal({ open: true, success: true });
+      setValues({
+        from_name: '',
+        from_email: '',
+        phone: '',
+        company: '',
+        message: ''
+      });
+      setCheck(false);
+    } catch (error) {
+      setModal({ open: true, success: false });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
-    <div className={classes.pageWrap}>
-      <div className={classes.cloudDeco}>
-        <ParallaxCloud />
-      </div>
-
-      {/* MODAL */}
-      <Dialog open={modal.open} onClose={handleCloseModal}>
+    <div className={cx(classes.pageWrap, classes.contactPage)}>
+      <Dialog
+        open={modal.open}
+        onClose={handleCloseModal}
+        PaperProps={{ className: classes.dialogPaper }}
+      >
         <DialogTitle>
           {modal.success
             ? t('hosting-landing.modal_contact.title')
@@ -111,130 +115,162 @@ function Contact() {
         </DialogActions>
       </Dialog>
 
-      {!isDesktop && (
-        <div className={cx(classes.logo, classes.logoHeader)}>
-          <Link href={routeLink.hosting.home}>
-            <img src={brand.hosting.img} alt="logo" />
-            <Typography component="span" className={text.title}>
-              {brand.hosting.projectName}
-            </Typography>
-          </Link>
+      <Container maxWidth="lg" className={cx(classes.innerWrap, classes.contactInner)}>
+        <div className={classes.contactTopbar}>
+          <Button
+            component={Link}
+            href={routeLink.hosting.home}
+            startIcon={<ArrowBackRoundedIcon />}
+            className={classes.contactBackButton}
+          >
+            {t('back')}
+          </Button>
         </div>
-      )}
-      <Container maxWidth="md" className={classes.innerWrap}>
-        <IconButton component={Link} href={routeLink.hosting.home} className={classes.backtohome} size="large">
-          <span>
-            <i className="ion-ios-home-outline" />
-            <i className="ion-ios-arrow-round-back" />
-          </span>
-        </IconButton>
-        <Paper className={cx(classes.formBox, 'fragment-fadeUp')}>
-          <div className={classes.frmDeco}>
-            <svg className={classes.cloud}>
-              <use xlinkHref="/images/hosting/cloud_bottom_frm.svg#main" />
-            </svg>
-          </div>
-          <div className={classes.fullFromWrap}>
-            <Typography
-              variant="h3"
-              align="center"
-              className={cx(classes.title, text.title)}
-              gutterBottom
-            >
-              {t('contact_title2')}
-            </Typography>
-            <Typography className={cx(classes.desc, text.subtitle2)}>
-              {t('contact_subtitle')}
-            </Typography>
-            <div className={classes.form}>
-              <ValidatorForm
-                onSubmit={handleSubmit}
-                onError={errors => console.log(errors)}
+        <Paper className={cx(classes.formBox, classes.contactFormBox, 'fragment-fadeUp')}>
+          <div className={classes.contactAccent} aria-hidden="true" />
+
+          <div className={classes.contactGrid}>
+            <aside className={classes.introPanel}>
+              <Link href={routeLink.hosting.home} className={classes.formBrand}>
+                <img src={brand.hosting.img} alt="Integral Pool" width="58" height="58" />
+                <span>{brand.hosting.projectName}</span>
+              </Link>
+
+              <span className={classes.introKicker}>{t('contact_title')}</span>
+              <Typography
+                variant="h3"
+                component="h1"
+                className={cx(classes.title, classes.contactTitle, text.title)}
               >
-                <Grid container spacing={6}>
-                  <Grid item md={6} xs={12}>
-                    <TextValidator
-                      variant="filled"
-                      className={classes.input}
-                      label={t('form_name')}
-                      onChange={handleChange('from_name')}
-                      name="from_name"
-                      value={values.from_name}
-                      validators={['required']}
-                      errorMessages={['This field is required']}
-                    />
-                  </Grid>
-                  <Grid item md={6} xs={12}>
-                    <TextValidator
-                      variant="filled"
-                      className={classes.input}
-                      label={t('form_email')}
-                      onChange={handleChange('from_email')}
-                      name="from_email"
-                      value={values.from_email}
-                      validators={['required', 'isEmail']}
-                      errorMessages={['This field is required', 'email is not valid']}
-                    />
-                  </Grid>
-                  <Grid item md={6} xs={12}>
-                    <TextValidator
-                      variant="filled"
-                      className={classes.input}
-                      label={t('form_phone')}
-                      onChange={handleChange('phone')}
-                      name="phone"
-                      value={values.phone}
-                    />
-                  </Grid>
-                  <Grid item md={6} xs={12}>
-                    <TextValidator
-                      variant="filled"
-                      className={classes.input}
-                      label={t('form_company')}
-                      onChange={handleChange('company')}
-                      name="company"
-                      value={values.company}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextValidator
-                      variant="filled"
-                      multiline
-                      rows="6"
-                      className={classes.input}
-                      label={t('form_message')}
-                      onChange={handleChange('message')}
-                      name="message"
-                      value={values.message}
-                    />
-                  </Grid>
-                </Grid>
-                <div className={cx(classes.btnArea, classes.flex)}>
-                  <FormControlLabel
-                    control={(
-                      <Checkbox
-                        validators={['isTruthy']}
-                        errorMessages="This field is required"
-                        checked={check}
-                        value={check}
-                        onChange={(e) => handleCheck(e)}
-                        color="primary"
+                {t('contact_title2')}
+              </Typography>
+              <Typography className={cx(classes.desc, classes.contactDesc, text.subtitle2)}>
+                {t('contact_subtitle')}
+              </Typography>
+              <div className={classes.contactChannels}>
+                <a href="tel:+17867701666">{locale === 'es' ? 'EE. UU.' : 'United States'}: +1 786 770 1666</a>
+                <a href="tel:+573022092633">Colombia: +57 302 209 2633</a>
+              </div>
+
+              <div className={classes.rippleArt} aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+            </aside>
+
+            <div className={cx(classes.fullFromWrap, classes.contactFormPanel)}>
+              <div className={cx(classes.form, classes.contactForm)}>
+                <ValidatorForm
+                  onSubmit={handleSubmit}
+                  onError={() => {}}
+                >
+                  <Grid container spacing={3}>
+                    <Grid item md={6} xs={12}>
+                      <TextValidator
+                        variant="filled"
+                        className={cx(classes.input, classes.contactInput)}
+                        label={t('form_name')}
+                        onChange={handleChange('from_name')}
+                        name="from_name"
+                        value={values.from_name}
+                        autoComplete="name"
+                        inputProps={{ maxLength: 120 }}
+                        validators={['required']}
+                        errorMessages={[t('form_required')]}
                       />
-                    )}
-                    label={(
-                      <span>
-                        {t('form_terms')}<br />
-                        <a href="#">
-                          {t('form_privacy')}
-                        </a>
-                      </span>
-                    )}
-                  />
-                  <Button variant="contained" fullWidth={isMobile} type="submit" color="secondary" size="large">
-                    {t('form_send')}
-                  </Button>
-                </div>
-              </ValidatorForm>
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <TextValidator
+                        variant="filled"
+                        className={cx(classes.input, classes.contactInput)}
+                        label={t('form_email')}
+                        onChange={handleChange('from_email')}
+                        name="from_email"
+                        value={values.from_email}
+                        autoComplete="email"
+                        inputProps={{ maxLength: 254 }}
+                        validators={['required', 'isEmail']}
+                        errorMessages={[t('form_required'), t('form_invalid_email')]}
+                      />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <TextValidator
+                        variant="filled"
+                        className={cx(classes.input, classes.contactInput)}
+                        label={t('form_phone')}
+                        onChange={handleChange('phone')}
+                        name="phone"
+                        value={values.phone}
+                        autoComplete="tel"
+                        inputProps={{ maxLength: 60 }}
+                      />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <TextValidator
+                        variant="filled"
+                        className={cx(classes.input, classes.contactInput)}
+                        label={t('form_company')}
+                        onChange={handleChange('company')}
+                        name="company"
+                        value={values.company}
+                        autoComplete="organization"
+                        inputProps={{ maxLength: 160 }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextValidator
+                        variant="filled"
+                        multiline
+                        rows="5"
+                        className={cx(classes.input, classes.contactInput)}
+                        label={t('form_message')}
+                        onChange={handleChange('message')}
+                        name="message"
+                        value={values.message}
+                        validators={['required']}
+                        errorMessages={[t('form_required')]}
+                        inputProps={{ maxLength: 5000 }}
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <div className={cx(classes.btnArea, classes.flex, classes.contactBtnArea)}>
+                    <FormControlLabel
+                      control={(
+                        <Checkbox
+                          validators={['isTruthy']}
+                          errorMessages={t('form_consent_required')}
+                          checked={check}
+                          value={check}
+                          onChange={(e) => handleCheck(e)}
+                          color="primary"
+                        />
+                      )}
+                      label={(
+                        <span>
+                          {t('form_terms')}{' '}
+                          <a href={'/' + locale + '/privacy/'} target="_blank" rel="noopener noreferrer">
+                            {t('form_privacy')}
+                          </a>
+                        </span>
+                      )}
+                    />
+                    <Button
+                      variant="contained"
+                      fullWidth={isMobile}
+                      type="submit"
+                      color="secondary"
+                      size="large"
+                      className={classes.contactSubmit}
+                      disabled={isSending}
+                    >
+                      {isSending ? t('form_sending') : t('form_send')}
+                    </Button>
+                  </div>
+                  {isSending && <Typography role="status" aria-live="polite">{t('form_sending_status')}</Typography>}
+                </ValidatorForm>
+              </div>
             </div>
           </div>
         </Paper>

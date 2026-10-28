@@ -35,28 +35,23 @@ function PageNav() {
     }
   };
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    console.log();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const { classes, cx } = useStyles();
-  const [menuList] = useState([
-    createData(1, navMenu[0], '#' + navMenu[0].replace(/ /g, '_')),
-    createData(2, navMenu[1], '#' + navMenu[1].replace(/ /g, '_')),
-    createData(3, navMenu[2], '#' + navMenu[2].replace(/ /g, '_')),
-    createData(4, navMenu[3], '#' + navMenu[3].replace(/ /g, '_')),
-    createData(4, navMenu[4], '#' + navMenu[4].replace(/ /g, '_')),
-  ]);
+  const sectionMenu = navMenu.filter(item => item !== 'contact');
+  const menuList = sectionMenu.map((name, index) => createData(index + 1, name, '#' + name));
   return (
     <div className={cx(classes.pageNav, show && classes.show)}>
       <nav className={classes.sectionNav}>
         <Scrollspy
-          items={navMenu}
+          items={sectionMenu}
           currentClassName="active"
         >
           { menuList.map(item => (
             <li
               key={item.id.toString()}
-              style={{ top: 30 * (navMenu.length - item.id) }}
+              style={{ top: 30 * (sectionMenu.length - item.id) }}
               data-id={item.id}
             >
               <Tooltip
@@ -75,7 +70,7 @@ function PageNav() {
         </Scrollspy>
       </nav>
       <Tooltip
-        title="To Top"
+        title={t('hosting-landing.to_top')}
         placement="left"
         classes={{
           tooltip: classes.tooltip
@@ -84,7 +79,7 @@ function PageNav() {
         <span>
           <Fab
             color="primary"
-            aria-label="To top"
+            aria-label={t('hosting-landing.to_top')}
             component={LinkBtn}
             href="#home"
             className={classes.fab}

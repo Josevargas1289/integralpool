@@ -1,165 +1,87 @@
-function useResponsive(breakpoint = 960) {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth < breakpoint;
-    }
-    return false;
-  });
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < breakpoint);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [breakpoint]);
-  return isMobile;
-}
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'next-i18next';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
-import SettingsIcon from '@mui/icons-material/Settings';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
-import ListItem from '@mui/material/ListItem';
-import Switch from '@mui/material/Switch';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LanguageSwitch from '../LangSwitch/Menu';
 import useStyles from './header-style';
-import i18nextConfig from 'next-i18next.config'; 
+import i18nextConfig from 'next-i18next.config';
 
 let themeType = 'light';
 if (typeof Storage !== 'undefined') {
   themeType = localStorage.getItem('luxiTheme') || 'light';
 }
 
-function Settings(props) {
-  const [ctn, setCtn] = useState(null);
+function Settings({ toggleDark, toggleDir, invert }) {
   const { classes, cx } = useStyles();
+  const [container, setContainer] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
   const { t, i18n } = useTranslation('common');
-  const isMobile = useResponsive(960);
-  const currentLocale = i18n.language;
+  const currentLocale = i18n.language === 'en' ? 'en' : 'es';
 
-  function handleClick(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleClose() {
-    setAnchorEl(null);
-  }
+  useEffect(() => setContainer(document.getElementById('main-wrap')), []);
 
   const handleChangeMode = () => {
-    setDark(!isDark);
-    props.toggleDark();
+    setDark(current => !current);
+    toggleDark();
   };
 
-  useEffect(() => {
-    setCtn(document.getElementById('main-wrap'));
-  });
-
+  const close = () => setAnchorEl(null);
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-  const { invert } = props;
 
   return (
     <div className={classes.setting}>
-      {isMobile ? (
+      <Tooltip title={isDark ? t('hosting-landing.header_light') : t('hosting-landing.header_dark')}>
         <IconButton
-          aria-describedby={id}
-          aria-label="Settings"
-          onClick={handleClick}
-          className={cx(classes.icon, open && classes.active, invert && classes.invert)}
-          size="large"
+          onClick={handleChangeMode}
+          className={cx(classes.utilityButton, invert && classes.invert)}
+          aria-label={isDark ? t('hosting-landing.header_light') : t('hosting-landing.header_dark')}
+          size="small"
         >
-          <SettingsIcon fontSize="inherit" />
+          {isDark ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
         </IconButton>
-      ) : (
-        <button
-          aria-describedby={id}
-          aria-label="Idioma"
-          onClick={handleClick}
-          className={cx(classes.icon, invert && classes.invert)}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            padding: '8px 16px',
-            color: '#00BCD4',
-            fontWeight: 600,
-            transition: 'color 0.2s',
-          }}
-          // El color persiste, no se modifica en hover
+      </Tooltip>
+      <Tooltip title={t('hosting-landing.header_language')}>
+        <IconButton
+          aria-haspopup="menu"
+          aria-expanded={open}
+          onClick={event => setAnchorEl(event.currentTarget)}
+          className={cx(classes.utilityButton, open && classes.active, invert && classes.invert)}
+          aria-label={t('hosting-landing.header_language')}
+          size="small"
         >
-          {t('language')}
-        </button>
-      )}
+          <SettingsIcon />
+        </IconButton>
+      </Tooltip>
       <Popover
-        id={id}
         open={open}
         anchorEl={anchorEl}
-        onClose={handleClose}
-        container={ctn}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
+        onClose={close}
+        container={container}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <List
           component="nav"
-          className={classes.modeMenu}
-          aria-label="Mode-menu"
-          subheader={(
-            <ListSubheader component="div">
-              {t('hosting-landing.header_theme')}
-            </ListSubheader>
-          )}
-        >
-          <ListItem>
-            <Typography component="div">
-              <Grid component="label" container alignItems="center" spacing={1}>
-                <Grid item>{t('hosting-landing.header_light')}</Grid>
-                <Grid item>
-                  <Switch
-                    checked={isDark}
-                    onChange={handleChangeMode}
-                    value={isDark}
-                    inputProps={{ 'aria-label': 'checkbox' }}
-                  />
-                </Grid>
-                <Grid item>{t('hosting-landing.header_dark')}</Grid>
-              </Grid>
-            </Typography>
-          </ListItem>
-        </List>
-        <Divider />
-        <List
-          component="nav"
           className={classes.langMenu}
-          aria-label="Language-menu"
-          subheader={(
-            <ListSubheader component="div">
-              {t('hosting-landing.header_language')}
-            </ListSubheader>
-          )}
+          aria-label={t('hosting-landing.header_language')}
+          subheader={<ListSubheader component="div">{t('hosting-landing.header_language')}</ListSubheader>}
         >
-          {i18nextConfig.i18n.locales.map((locale) => (
+          {i18nextConfig.i18n.locales.map(locale => (
             <LanguageSwitch
               ssg={i18nextConfig.ssg}
               locale={locale}
               key={locale}
               checked={locale === currentLocale}
-              toggleDir={props.toggleDir}
-              closePopup={handleClose}
+              toggleDir={toggleDir}
+              closePopup={close}
             />
           ))}
         </List>
@@ -174,8 +96,6 @@ Settings.propTypes = {
   invert: PropTypes.bool,
 };
 
-Settings.defaultProps = {
-  invert: false
-};
+Settings.defaultProps = { invert: false };
 
 export default Settings;

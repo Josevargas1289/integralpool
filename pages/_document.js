@@ -15,24 +15,19 @@ class MyDocument extends Document {
         <body>
           <div
             id="preloader"
+            role="status"
+            aria-label={currentLocale === "es" ? "Cargando Integral Pool" : "Loading Integral Pool"}
             style={{
               position: 'fixed',
-              zIndex: 2001,
+              inset: 0,
+              zIndex: 9999,
+              display: 'grid',
+              placeItems: 'center',
               background: '#fafafa',
-              width: '100%',
-              height: '100%',
+              transition: 'opacity 180ms ease',
             }}
           >
-            <img
-              style={{
-                opacity: 0.5,
-                position: 'fixed',
-                top: 'calc(50% - 50px)',
-                left: 'calc(50% - 50px)'
-              }}
-              src="/images/loading.gif"
-              alt="loading"
-            />
+            <img src="/images/loading.gif" alt="" aria-hidden="true" width="100" height="127" />
           </div>
           {getInitColorSchemeScript()}
           <Main />

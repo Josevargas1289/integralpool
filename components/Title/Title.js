@@ -28,7 +28,7 @@ export default function Title(props) {
       <Typography display="block" variant="caption" className={classes.caption}>
         {caption}
       </Typography>
-      <Typography variant="h4">
+      <Typography component="h2" variant="h4">
         {text}
       </Typography>
     </div>

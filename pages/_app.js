@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import App from 'next/app';
 import PropTypes from 'prop-types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
@@ -8,7 +7,6 @@ import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import CssBaseline from '@mui/material/CssBaseline';
-import LoadingBar from 'react-top-loading-bar';
 import { appWithTranslation } from 'next-i18next';
 import lngDetector from '../lib/languageDetector';
 import appTheme from '../theme/appTheme';
@@ -22,6 +20,7 @@ import '../vendors/top-loading-bar.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
 import WhatsaapButton from '../components/WhatsaapButton/whatsappButton';
+
 
 let themeType = '';
 if (typeof Storage !== 'undefined') { // eslint-disable-line
@@ -53,7 +52,7 @@ const cacheLTR = createCache({
 
 function MyApp(props) {
   const { Component, pageProps, router } = props; // eslint-disable-line
-  const [loading, setLoading] = useState(0);
+
 
   const curLang = lngDetector.detect();
 
@@ -82,19 +81,35 @@ function MyApp(props) {
     // const { pathname, asPath, query } = router;
     // router.push({ pathname, query }, asPath, { locale: curLang });
 
-    // Remove preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader !== null || undefined) {
-      setTimeout(() => {
-        preloader.remove();
-      }, 1500);
-    }
+  }, []);
 
-    // Remove loading bar
-    setLoading(0);
-    setTimeout(() => {
-      setLoading(100);
-    }, 2000);
+  useEffect(() => {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return undefined;
+
+    let revealTimer;
+    let removeTimer;
+    let started = false;
+    const reveal = () => {
+      if (started) return;
+      started = true;
+      revealTimer = window.setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.pointerEvents = 'none';
+        removeTimer = window.setTimeout(() => preloader.remove(), 180);
+      }, 1200);
+    };
+
+    if (document.readyState === 'complete') reveal();
+    else window.addEventListener('load', reveal, { once: true });
+    const fallbackTimer = window.setTimeout(reveal, 4500);
+
+    return () => {
+      window.removeEventListener('load', reveal);
+      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(revealTimer);
+      window.clearTimeout(removeTimer);
+    };
   }, []);
 
   const toggleDarkTheme = () => {
@@ -130,12 +145,7 @@ function MyApp(props) {
       </Head>
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
-        <LoadingBar
-          height={3}
-          color={theme.palette.primary.main}
-          progress={loading}
-          className="top-loading-bar"
-        />
+
         <div id="main-wrap">
           <Component
             {...pageProps}
@@ -143,7 +153,7 @@ function MyApp(props) {
             onToggleDir={toggleDirection}
             key={router.route}
           />
-          <WhatsaapButton />
+          {!['/[locale]/contact', '/[locale]/privacy'].includes(router.pathname) && <WhatsaapButton />}
         </div>
       </ThemeProvider>
     </CacheProvider>
@@ -156,6 +166,5 @@ MyApp.propTypes = {
   router: PropTypes.object.isRequired
 };
 
-MyApp.getInitialProps = async (appContext) => ({ ...(await App.getInitialProps(appContext)) });
 
 export default appWithTranslation(MyApp);

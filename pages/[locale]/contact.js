@@ -1,32 +1,20 @@
-import React, { Fragment } from 'react';
-import Head from 'next/head';
-// Use this below for Server Side Render/Translation (SSR)
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// Use this below for Static Site Generation (SSG)
+import React from 'react';
+import { useTranslation } from 'next-i18next';
 import { getStaticPaths, makeStaticProps } from 'lib/getStatic';
-import brand from 'public/text/brand';
 import ContactFrm from 'components/Forms/Contact';
+import Seo from 'components/Seo/Seo';
 
 function Contact() {
+  const { t, i18n } = useTranslation('common');
+  const locale = i18n.language === 'en' ? 'en' : 'es';
   return (
-    <Fragment>
-      <Head>
-        <title>
-          { brand.hosting.name + ' - Contact' }
-        </title>
-      </Head>
-      <div>
-        <ContactFrm />
-      </div>
-    </Fragment>
+    <>
+      <Seo title={t('contact_seo_title')} description={t('contact_seo_description')} locale={locale} path="contact" />
+      <ContactFrm />
+    </>
   );
 }
 
-// Use this below for Server Side Render/Translation (SSR)
-// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
-
-// Use this below for Static Site Generation (SSG)
 const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
-
 export default Contact;

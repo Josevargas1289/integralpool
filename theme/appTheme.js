@@ -10,6 +10,7 @@ const appTheme = (color, mode) => ({
     },
     background: {
       paper: mode === 'dark' ? '#303030' : '#FFFFFF',
+      default: mode === 'dark' ? '#212121' : '#F7FAFB',
     },
   },
   typography: {

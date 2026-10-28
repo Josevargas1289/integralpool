@@ -12,25 +12,28 @@ import useStyles from './footer-style';
 
 function Footer({ toggleDir }) {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const locale = i18n.language === 'en' ? 'en' : 'es';
 
   const footerLinks = [
-    { key: 'about', href: '#promotion' },
-    { key: 'services', href: '#feature' },
-    { key: 'partners', href: '#benefit' },
-    // { key: 'process', href: '#pricing' },
-    { key: 'contact', href: '/contact/' },
-    { key: 'faq', href: '/faq/' },
+    { key: 'about', href: '/' + locale + '/#promotion' },
+    { key: 'services', href: '/' + locale + '/#feature' },
+    { key: 'process', href: '/' + locale + '/#process' },
+    { key: 'partners', href: '/' + locale + '/#benefit' },
+    { key: 'gallery', href: '/' + locale + '/#galeries' },
+    { key: 'contact', href: '/' + locale + '/contact/' },
+    { key: 'faq', href: '/' + locale + '/faq/' },
+    { key: 'privacy', href: '/' + locale + '/privacy/' },
   ];
 
   return (
     <div className={classes.footer}>
       <Container fixed component="footer">
-        <Grid container spacing={6}>
+        <Grid container spacing={{ xs: 4, md: 6 }}>
           {/* Columna 1: Logo + descripción */}
           <Grid item xs={12} md={4}>
             <div className={classes.logo}>
-              <img src={brand.hosting.img} alt="logo" />
+              <img src={brand.hosting.img} alt="Integral Pool" width="58" height="58" />
               <Typography variant="h6" color="textPrimary">
                 {brand.hosting.projectName}
               </Typography>
@@ -42,6 +45,11 @@ function Footer({ toggleDir }) {
             >
               {t('hosting-landing.banner_title')}
             </Typography>
+            <div className={classes.contactList}>
+              <a href="tel:+17867701666">{locale === 'es' ? 'EE. UU.' : 'United States'}: +1 786 770 1666</a>
+              <a href="tel:+573022092633">Colombia: +57 302 209 2633</a>
+              <a href="mailto:info@integralpool.com">info@integralpool.com</a>
+            </div>
           </Grid>
 
           {/* Columna 2: Enlaces rápidos */}
@@ -98,7 +106,7 @@ function Footer({ toggleDir }) {
       </IconButton>
     </a>
 
-    <a href="https://www.tiktok.com/@integral.pools?_t=ZP-8yKwcyCarVf&_r=1 " target="_blank" rel="noopener noreferrer">
+    <a href="https://www.tiktok.com/@integral.pools" target="_blank" rel="noopener noreferrer">
       <IconButton aria-label="TikTok" className={classes.margin} size="small">
         <svg width="20" height="20" viewBox="0 0 256 256" fill="#fff" xmlns="http://www.w3.org/2000/svg">
           <path d="M226.5 76.5c-27.2 0-49.2-22-49.2-49.2h-32.8v149.3c0 17-13.8 30.8-30.8 30.8s-30.8-13.8-30.8-30.8 13.8-30.8 30.8-30.8c5.1 0 9.9 1.3 14.2 3.6V115.4c-4.7-.7-9.5-1.1-14.2-1.1-34.6 0-62.7 28.1-62.7 62.7S108.3 240 142.9 240s62.7-28.1 62.7-62.7V93.6c10.3 5.7 22.2 9 35 9v-26z"/>

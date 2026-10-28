@@ -75,6 +75,7 @@ function FaqForms() {
           <div className={classes.fullFromWrap}>
             <Typography
               variant="h3"
+              component="h1"
               align="center"
               className={cx(classes.title, text.title)}
               gutterBottom

@@ -1,224 +1,107 @@
 import { makeStyles } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
-import buildingDeco from 'public/images/hosting/building_deco_light.png';
 
 const footerStyles = makeStyles({ uniqId: 'footer' })((theme, _params, classes) => ({
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
   footer: {
     position: 'relative',
-    paddingTop: theme.spacing(15),
-    paddingBottom: theme.spacing(20),
-    background: theme.palette.primary.dark,
-    '& p': {
-      color: theme.palette.common.white,
-      [theme.breakpoints.down('sm')]: {
-        textAlign: 'center'
-      }
-    },
-    '& ul': {
-      margin: 0,
-      padding: 0,
-    },
+    padding: theme.spacing(11, 0, 4),
+    overflow: 'hidden',
+    background: '#041522',
+    '& p': { color: 'rgba(255,255,255,0.62)' },
+    '& ul': { margin: 0, padding: 0 },
     '& li': {
+      display: 'block',
+      marginBottom: theme.spacing(1.25),
       listStyle: 'none',
-      marginBottom: theme.spacing(),
-      display: 'inline-block',
-      width: '30%',
-      marginRight: '3%',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      color: theme.palette.common.white,
-      [theme.breakpoints.down('sm')]: {
-        width: '47%'
-      },
       '& a': {
+        color: 'rgba(255,255,255,0.68)',
         fontSize: 14,
-        textTransform: 'capitalize',
-        textDecoration: 'none !important',
-        color: theme.palette.common.white,
-        '&:hover': {
-          color: theme.palette.primary.light
-        }
-      }
+        fontWeight: 600,
+        textDecoration: 'none',
+        transition: 'color 180ms ease, padding-left 180ms ease',
+        '&:hover': { color: theme.palette.primary.main, paddingLeft: 4 },
+      },
     },
-    '&:after': {
-      background: `url(${buildingDeco}) repeat-x bottom center`,
-      content: '""',
-      position: 'absolute',
-      left: 0,
-      opacity: 0.1,
-      bottom: -20,
-      width: '100%',
-      height: 150,
-    }
   },
   title: {
-    color: theme.palette.primary.light,
-    fontSize: 14,
+    marginBottom: theme.spacing(2.5),
+    color: theme.palette.primary.main,
+    fontSize: 11,
+    fontWeight: 800,
+    letterSpacing: '0.16em',
     textTransform: 'uppercase',
-    marginBottom: theme.spacing(),
-    fontWeight: theme.typography.fontWeightBold,
   },
-  quickLinks: {
-    marginTop: theme.spacing(5)
-  },
+  quickLinks: { marginTop: theme.spacing(1) },
   logo: {
     display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(1.5),
     marginBottom: theme.spacing(3),
-    alignItems: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
-      justifyContent: 'center',
-      '& + p': {
-        textAlign: 'center'
-      },
-    },
-    '& img': {
-      width: 64,
-      marginRight: theme.spacing(),
-    },
+    '& img': { width: 58, height: 58, objectFit: 'contain' },
     '& h6': {
-      fontWeight: theme.typography.fontWeightMedium,
-      fontSize: 28,
-      textTransform: 'none',
-      color: theme.palette.common.white,
-    }
+      color: `${theme.palette.common.white} !important`,
+      fontSize: 24,
+      fontWeight: 800,
+      letterSpacing: '-0.03em',
+    },
   },
   footerDesc: {
-    display: 'block',
+    maxWidth: 340,
     fontSize: 14,
-    marginBottom: theme.spacing(2)
+    lineHeight: 1.75,
+  },
+  contactList: {
+    display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, marginTop: 24,
+    '& a': { color: 'rgba(255,255,255,0.76)', fontSize: 13, textDecoration: 'none' },
+    '& a:hover, & a:focus-visible': { color: theme.palette.primary.main, textDecoration: 'underline' },
   },
   socmed: {
     display: 'flex',
-    justifyContent: 'space-around',
-    marginBottom: theme.spacing(4),
+    justifyContent: 'center',
+    gap: theme.spacing(1),
+    marginBottom: theme.spacing(3),
     '& button': {
-      margin: theme.spacing(),
-      color: theme.palette.primary.dark,
-      background: theme.palette.primary.main,
-      width: 36,
-      height: 36,
-      '& i': {
-        color: theme.palette.common.white,
-      }
+      width: 42,
+      height: 42,
+      color: theme.palette.common.white,
+      border: '1px solid rgba(255,255,255,0.14)',
+      background: 'rgba(255,255,255,0.045)',
+      transition: 'background 180ms ease, transform 180ms ease',
+      '&:hover': { background: theme.palette.primary.main, transform: 'translateY(-3px)' },
     },
-    '& i': {
-      fontSize: 24
-    }
-  },
-  icon: {},
-  selectLang: {
-    width: 250,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'block',
-    margin: theme.spacing(2, 0, 4),
-    color: theme.palette.common.white,
-    [`& .${classes.icon}`]: {
-      top: 29,
-      color: theme.palette.primary.light,
-      position: 'relative',
-    },
-    '& svg': {
-      color: theme.palette.primary.light,
-    },
-    '& fieldset': {
-      borderRadius: 10,
-      boxShadow: '0 1.5px 12px 2px rgba(0, 0, 0, 0.06)',
-      border: `1px solid ${alpha(theme.palette.primary.light, 0.5)} !important`,
-      '& legend': {
-        top: 6,
-        position: 'relative',
-        borderTop: `1px solid ${alpha(theme.palette.primary.light, 0.5)}`
-      },
-      '& + div + div': {
-        background: 'none !important',
-        padding: theme.spacing(1.5, 1.5, 1.5, 4),
-        width: 'calc(100% - 32px)',
-      }
-    }
-  },
-  selectMenu: {
-    width: 160,
-    background: 'none !important'
-  },
-  footerCounter: {
-    position: 'relative',
-    background: theme.palette.primary.dark,
-    '&:before': {
-      content: '""',
-      background: theme.palette.primary.dark,
-      position: 'absolute',
-      left: '-10%',
-      borderRadius: '50%',
-      top: -80,
-      width: '120%',
-      height: 350,
-      [theme.breakpoints.down('sm')]: {
-        height: 120,
-      }
-    },
-  },
-  category: {},
-  listText: {},
-  blogItem: {
-    display: 'flex',
-    alignItems: 'center',
-    margin: theme.spacing(2, 0),
-    textAlign: 'left',
-    justifyContent: 'flex-start',
-    [`& .${classes.category}`]: {
-      marginBottom: theme.spacing(),
-      display: 'block',
-      color: theme.palette.primary.light
-    },
-    [`& .${classes.listText}`]: {
-      flex: 1,
-      color: theme.palette.primary.light
-    },
-    '& figure': {
-      borderRadius: 4,
-      overflow: 'hidden',
-      margin: theme.spacing(1, 2, 0, 0),
-      width: 80,
-      height: 56,
-      '& img': {
-        display: 'block',
-        minHeight: '100%',
-        width: '100%',
-      }
-    },
-    '& p': {
-      fontSize: 13,
-      textAlign: 'left'
-    }
   },
   alignCenter: {
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center'
-},
-
-langWrapper: {
-  marginTop: theme.spacing(2),
-  [`& > div`]: {
-    margin: '0 auto'
-  }
-},
-
-copyWrapper: {
-  marginTop: theme.spacing(6),
-  textAlign: 'center',
-  '& p': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+  },
+  langWrapper: {
+    marginTop: theme.spacing(1),
+    [`& > div`]: { margin: '0 auto' },
+  },
+  copyWrapper: {
+    position: 'relative',
+    marginTop: theme.spacing(7),
+    paddingTop: theme.spacing(3),
+    textAlign: 'center',
+    borderTop: '1px solid rgba(255,255,255,0.09)',
+    '& p': { color: 'rgba(255,255,255,0.42)', fontSize: 12, letterSpacing: '0.05em' },
+  },
+  selectLang: {
+    width: 220,
     color: theme.palette.common.white,
-  }
-}
-
+    [`& .${classes.icon}`]: { color: theme.palette.primary.main },
+    '& svg': { color: theme.palette.primary.main },
+    '& fieldset': { borderColor: `${alpha(theme.palette.common.white, 0.2)} !important` },
+  },
+  selectMenu: {},
+  icon: {},
+  link: {},
+  footerCounter: {},
+  category: {},
+  listText: {},
+  blogItem: {},
 }));
 
-// TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
 export default footerStyles;
